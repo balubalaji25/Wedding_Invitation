@@ -10,123 +10,109 @@
 <style>
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
     background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-repeat: no-repeat;
     color: #4b3b2a;
 }
 
 .overlay {
-    background: rgba(255, 255, 255, 0.8); 
+    background: rgba(255, 255, 255, 0.85); 
     min-height: 100vh;
-    padding: 20px 15px;
+    padding: 20px 10px;
     display: flex;
     justify-content: center;
     box-sizing: border-box;
 }
 
 .card {
-    max-width: 500px;
+    max-width: 450px;
     width: 100%;
     text-align: center;
 }
 
 .logo {
-    width: 140px;
+    width: 120px;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .logo-title {
     font-family: 'Great Vibes', cursive;
-    font-size: 38px;
+    font-size: 32px;
     color: #b48a3c;
-    margin: 5px 0;
+    margin-bottom: 5px;
 }
 
 .subtitle {
-    font-size: 18px;
-    margin-bottom: 5px;
-    line-height: 1.4;
-}
-
-/* TAGLINE STYLE */
-.tagline {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #b48a3c;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 
 .countdown {
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin: 20px 0;
+    justify-content: space-between;
+    gap: 5px;
+    margin-bottom: 25px;
 }
 
 .time-box {
     background: white;
-    padding: 10px 5px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.1);
+    padding: 10px 2px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     flex: 1;
-    min-width: 60px;
 }
 
 .time-box span {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: #b48a3c;
     display: block;
 }
 
 .time-box small {
-    font-size: 10px;
-    color: #777;
+    font-size: 9px;
+    color: #888;
     text-transform: uppercase;
 }
 
 .section {
-    margin: 15px 0;
+    margin-bottom: 15px;
     padding: 15px;
-    border-radius: 12px;
+    border-radius: 15px;
     background: white;
-    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .section h3 {
     font-size: 18px;
-    margin: 0 0 10px 0;
+    margin-top: 0;
     font-family: 'Playfair Display', serif;
+    color: #b48a3c;
 }
 
 .btn-container {
     display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
+    gap: 10px;
+    margin-top: 15px;
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 16px;
-    border-radius: 25px;
+    flex: 1;
+    padding: 12px 5px;
+    border-radius: 30px;
     background: linear-gradient(135deg, #c9a14a, #9f7c2a);
     color: white !important;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 13px;
-    border: none;
-    flex: 1;
-    min-width: 120px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-alt {
@@ -135,12 +121,23 @@ body {
     border: 1px solid #b48a3c;
 }
 
+/* SIGNATURE TAGLINE STYLE */
+.tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #b48a3c;
+    letter-spacing: 5px;
+    margin: 40px 0 20px 0;
+    text-transform: uppercase;
+}
+
 .flower {
     position: fixed;
     top: -50px;
     animation: fall linear infinite;
     pointer-events: none;
-    z-index: 999;
+    z-index: 1000;
 }
 
 @keyframes fall {
@@ -152,46 +149,44 @@ body {
 <body>
 
 <div class="overlay">
-<div class="card">
+    <div class="card">
+        <img src="logo.png" class="logo" alt="Wedding Logo">
 
-<img src="logo.png" class="logo" alt="Wedding Logo">
+        <div class="logo-title">Save the Date</div>
+        <div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
 
-<div class="logo-title">Save the Date ✨</div>
-<div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
+        <div class="countdown">
+            <div class="time-box"><span id="days">0</span><small>Days</small></div>
+            <div class="time-box"><span id="hours">0</span><small>Hours</small></div>
+            <div class="time-box"><span id="minutes">0</span><small>Mins</small></div>
+            <div class="time-box"><span id="seconds">0</span><small>Secs</small></div>
+        </div>
 
-<div class="tagline">#Kishraja</div>
+        <div class="section">
+            <h3>🌼 Haldi & Mehendi</h3>
+            <p>📅 2nd March 2026</p>
+            <a class="btn" style="margin: 0 auto; max-width: 200px;" href="https://share.google/sx7oT5CeCxZVOJFxP" target="_blank">View Location</a>
+        </div>
 
-<div class="countdown">
-<div class="time-box"><span id="days">0</span><small>Days</small></div>
-<div class="time-box"><span id="hours">0</span><small>Hours</small></div>
-<div class="time-box"><span id="minutes">0</span><small>Mins</small></div>
-<div class="time-box"><span id="seconds">0</span><small>Secs</small></div>
-</div>
+        <div class="section">
+            <h3>💍 Wedding Ceremony</h3>
+            <p>📅 4th March 2026 | 🕥 10:37 PM</p>
+            <p>📍 Padmavathi Convention Hall, Chirala</p>
+            <div class="btn-container">
+                <a class="btn" href="https://share.google/TO6dX1LdzeXd8PqUN" target="_blank">Navigate</a>
+                <a class="btn btn-alt" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Kishore+%E2%9D%A4%EF%B8%8F+Supraja+Wedding&dates=20260304T170700Z/20260304T210000Z&details=Wedding+Ceremony+at+10:37+PM&location=Padmavathi+Convention+Hall,+Chirala" target="_blank">🗓️ Add to Calendar</a>
+            </div>
+        </div>
 
-<div class="section">
-    <h3>🌼 Haldi & Mehendi</h3>
-    <p>📅 2nd March 2026</p>
-    <a class="btn" href="https://share.google/sx7oT5CeCxZVOJFxP" target="_blank">View Location</a>
-</div>
+        <div class="section">
+            <h3>🎉 Reception</h3>
+            <p>📅 5th March 2026 | From 12 PM</p>
+            <p>📍 HO Convention Hall, Vijayawada</p>
+            <a class="btn" style="margin: 0 auto; max-width: 200px;" href="https://share.google/kXQd3GLrh7IahK97P" target="_blank">View Location</a>
+        </div>
 
-<div class="section">
-    <h3>💍 Wedding Ceremony</h3>
-    <p>📅 4th March 2026 | 🕥 10:37 PM</p>
-    <p>📍 Padmavathi Convention Hall, Chirala</p>
-    <div class="btn-container">
-        <a class="btn" href="https://share.google/TO6dX1LdzeXd8PqUN" target="_blank">Navigate</a>
-        <a class="btn btn-alt" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Kishore+%E2%9D%A4%EF%B8%8F+Supraja+Wedding&dates=20260304T170700Z/20260304T210000Z&details=Wedding+Ceremony+at+10:37+PM&location=Padmavathi+Convention+Hall,+Chirala" target="_blank">🗓️ Add to My Calendar</a>
+        <div class="tagline">#KISHRAJA</div>
     </div>
-</div>
-
-<div class="section">
-    <h3>🎉 Reception</h3>
-    <p>📅 5th March 2026 | From 12 PM</p>
-    <p>📍 HO Convention Hall, Vijayawada</p>
-    <a class="btn" href="https://share.google/kXQd3GLrh7IahK97P" target="_blank">Navigate</a>
-</div>
-
-</div>
 </div>
 
 <script>
@@ -207,13 +202,13 @@ setInterval(function(){
     }
 }, 1000);
 
-for(let i=0; i<25; i++){
+for(let i=0; i<20; i++){
     let f=document.createElement("div");
     f.className="flower";
     f.innerHTML="🌸";
     f.style.left=Math.random()*100+"vw";
-    f.style.animationDuration=(5+Math.random()*6)+"s";
-    f.style.fontSize=(15+Math.random()*15)+"px";
+    f.style.animationDuration=(4+Math.random()*4)+"s";
+    f.style.fontSize=(12+Math.random()*15)+"px";
     document.body.appendChild(f);
 }
 </script>
