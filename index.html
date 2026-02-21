@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kishore ❤️ Supraja Wedding</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-
 <style>
 body{
 margin:0;
@@ -18,216 +16,68 @@ overflow-x:hidden;
 
 /* SPLASH */
 #splash{
-position:fixed;
-width:100%;
-height:100%;
-background:white;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
+position:fixed;width:100%;height:100%;background:white;
+display:flex;flex-direction:column;align-items:center;justify-content:center;
 z-index:9999;
 animation:fadeOut 4s forwards 3s;
 }
-
-.splash-title{
-font-family:'Great Vibes';
-font-size:60px;
-color:#b48a3c;
-}
-
-.splash-tag{
-font-size:24px;
-color:#9f7c2a;
-font-weight:bold;
-margin-top:10px;
-}
-
-@keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
-}
+.splash-title{font-family:'Great Vibes';font-size:60px;color:#b48a3c;}
+.splash-tag{font-size:24px;color:#9f7c2a;font-weight:bold;margin-top:10px;}
+@keyframes fadeOut{to{opacity:0;visibility:hidden;}}
 
 /* MAIN */
-.overlay{
-background:rgba(255,255,255,.92);
-min-height:100vh;
-padding:30px;
-display:flex;
-justify-content:center;
-}
+.overlay{background:rgba(255,255,255,.92);min-height:100vh;padding:30px;display:flex;justify-content:center;}
+.card{max-width:700px;text-align:center;}
 
-.card{
-max-width:700px;
-text-align:center;
-}
-
-/* PREMIUM LOGO */
-.logo-wrapper{
-position:relative;
-display:inline-block;
-margin-bottom:25px;
-}
-
-.logo{
-width:170px;
-height:170px;
-object-fit:cover;
-border-radius:50%;
-border:6px solid #c9a14a;
-box-shadow:0 0 25px rgba(201,161,74,.7);
-animation:logoPulse 3s infinite;
-}
-
-.logo-wrapper::before{
-content:"";
-position:absolute;
-top:-12px;
-left:-12px;
-width:194px;
-height:194px;
-border-radius:50%;
-border:3px dashed #e6c873;
-animation:spin 12s linear infinite;
-}
-
+/* LOGO */
+.logo-wrapper{position:relative;display:inline-block;margin-bottom:25px;}
+.logo{width:170px;height:170px;object-fit:cover;border-radius:50%;border:6px solid #c9a14a;
+box-shadow:0 0 25px rgba(201,161,74,.7);animation:logoPulse 3s infinite;}
+.logo-wrapper::before{content:"";position:absolute;top:-12px;left:-12px;width:194px;height:194px;
+border-radius:50%;border:3px dashed #e6c873;animation:spin 12s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
-@keyframes logoPulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.06);}
-100%{transform:scale(1);}
-}
+@keyframes logoPulse{0%{transform:scale(1);}50%{transform:scale(1.06);}100%{transform:scale(1);}}
+.logo-title{font-family:'Great Vibes';font-size:48px;color:#b48a3c;}
+.subtitle{font-size:22px;margin-bottom:20px;}
 
-.logo-title{
-font-family:'Great Vibes';
-font-size:48px;
-color:#b48a3c;
-}
+/* CIRCULAR COUNTDOWN */
+.countdown{display:flex;justify-content:center;gap:12px;flex-wrap:nowrap;overflow-x:auto;}
 
-.subtitle{
-font-size:22px;
-margin-bottom:20px;
-}
-
-/* COUNTDOWN */
-.countdown{
-display:flex;
-gap:8px;
-justify-content:center;
-flex-wrap:nowrap;
-overflow-x:auto;
-}
-
-.time-box{
-background:white;
-padding:12px 10px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-min-width: 60px;
-text-allign:center;
-}
-
-.time-box span{
-font-size:26px;
-font-weight:bold;
-color:#b48a3c;
-display:block;
-}
+.circle-container{position:relative;width:80px;height:80px;}
+.circle-svg{transform:rotate(-90deg);}
+.circle-bg,.circle-progress{fill:none;stroke-width:8;}
+.circle-bg{stroke:rgba(0,0,0,0.08);}
+.circle-progress{stroke:#b48a3c;stroke-linecap:round;transition:stroke-dashoffset 1s linear;}
+.circle-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+font-size:18px;font-weight:bold;text-align:center;color:#4b3b2a;line-height:1.1;}
+.circle-small{font-size:10px;color:#6d5b4b;display:block;letter-spacing:1px;}
 
 /* SECTIONS */
-.section{
-margin:25px 0;
-padding:20px;
-border-radius:12px;
-background:white;
-box-shadow:0 5px 25px rgba(0,0,0,.08);
-}
-
-.venue{
-font-weight:bold;
-font-size:18px;
-color:#9f7c2a;
-margin-top:5px;
-}
-
-.btn{
-display:inline-block;
-margin-top:10px;
-padding:10px 18px;
-border-radius:30px;
-background:linear-gradient(135deg,#c9a14a,#9f7c2a);
-color:white;
-text-decoration:none;
-}
-
-/* TAGLINE */
-.tagline{
-margin-top:20px;
-font-size:28px;
-font-weight:bold;
-color:#b48a3c;
-font-family:'Great Vibes';
-}
+.section{margin:25px 0;padding:20px;border-radius:12px;background:white;
+box-shadow:0 5px 25px rgba(0,0,0,.08);}
+.venue{font-weight:bold;font-size:18px;color:#9f7c2a;margin-top:5px;}
+.btn{display:inline-block;margin-top:10px;padding:10px 18px;border-radius:30px;
+background:linear-gradient(135deg,#c9a14a,#9f7c2a);color:white;text-decoration:none;}
+.tagline{margin-top:20px;font-size:28px;font-weight:bold;color:#b48a3c;font-family:'Great Vibes';}
 
 /* FLOWERS */
-.flower{
-position:fixed;
-top:-50px;
-font-size:22px;
-animation:fall linear infinite;
-z-index:999;
-}
-
-@keyframes fall{
-to{transform:translateY(110vh) rotate(360deg);}
-}
-
+.flower{position:fixed;top:-50px;font-size:22px;animation:fall linear infinite;z-index:999;}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);}}
 /* FIREWORK PARTICLES */
-.firework{
-position:fixed;
-width:6px;
-height:6px;
-border-radius:50%;
-animation:explode 1.2s linear forwards;
-z-index:9999;
-}
-
-@keyframes explode{
-0%{transform:scale(1);opacity:1;}
-100%{transform:scale(10);opacity:0;}
-}
-
+.firework{position:fixed;width:6px;height:6px;border-radius:50%;
+animation:explode 1.2s linear forwards;z-index:9999;}
+@keyframes explode{0%{transform:scale(1);opacity:1;}100%{transform:scale(10);opacity:0;}}
 /* POPUP */
-.popup{
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-family:'Great Vibes';
-font-size:70px;
-color:#c9a14a;
-text-shadow:0 0 20px gold;
-opacity:0;
-animation:showPopup 5s forwards;
-z-index:9999;
-}
-
-@keyframes showPopup{
-0%{opacity:0;transform:translate(-50%,-60%) scale(.5);}
+.popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+font-family:'Great Vibes';font-size:70px;color:#c9a14a;text-shadow:0 0 20px gold;
+opacity:0;animation:showPopup 5s forwards;z-index:9999;}
+@keyframes showPopup{0%{opacity:0;transform:translate(-50%,-60%) scale(.5);}
 20%{opacity:1;transform:translate(-50%,-50%) scale(1);}
-80%{opacity:1;}
-100%{opacity:0;}
-}
-
+80%{opacity:1;}100%{opacity:0;}}
 /* ROSE PETALS */
-.petal{
-position:fixed;
-top:-50px;
-font-size:24px;
-animation:fall linear infinite;
-}
+.petal{position:fixed;top:-50px;font-size:24px;animation:fall linear infinite;}
 </style>
 </head>
-
 <body>
 
 <!-- SPLASH -->
@@ -247,12 +97,39 @@ animation:fall linear infinite;
 <div class="logo-title">Save the Date ✨</div>
 <div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
 
-<!-- COUNTDOWN -->
+<!-- CIRCULAR COUNTDOWN -->
 <div class="countdown">
-<div class="time-box"><span id="days">0</span><small>Days</small></div>
-<div class="time-box"><span id="hours">0</span><small>Hours</small></div>
-<div class="time-box"><span id="minutes">0</span><small>Minutes</small></div>
-<div class="time-box"><span id="seconds">0</span><small>Seconds</small></div>
+<div class="circle-container">
+<svg class="circle-svg" width="80" height="80">
+<circle class="circle-bg" cx="40" cy="40" r="36"/>
+<circle class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226" stroke-dashoffset="226"/>
+</svg>
+<div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
+</div>
+
+<div class="circle-container">
+<svg class="circle-svg" width="80" height="80">
+<circle class="circle-bg" cx="40" cy="40" r="36"/>
+<circle class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226" stroke-dashoffset="226"/>
+</svg>
+<div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
+</div>
+
+<div class="circle-container">
+<svg class="circle-svg" width="80" height="80">
+<circle class="circle-bg" cx="40" cy="40" r="36"/>
+<circle class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226" stroke-dashoffset="226"/>
+</svg>
+<div class="circle-text"><span id="minutes">0</span><span class="circle-small">Minutes</span></div>
+</div>
+
+<div class="circle-container">
+<svg class="circle-svg" width="80" height="80">
+<circle class="circle-bg" cx="40" cy="40" r="36"/>
+<circle class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226" stroke-dashoffset="226"/>
+</svg>
+<div class="circle-text"><span id="seconds">0</span><span class="circle-small">Seconds</span></div>
+</div>
 </div>
 
 <!-- EVENTS -->
@@ -285,12 +162,7 @@ animation:fall linear infinite;
 మా వివాహ మహోత్సవానికి విచ్చేసి<br>
 మమ్మల్ని ఆశీర్వదించవలసిందిగా మనస్ఫూర్తిగా ఆహ్వానిస్తున్నాము.
 </p>
-
-<p style="margin-top:15px;font-weight:bold;color:#b48a3c;">
-— ప్రేమతో,<br>
-కిషోర్ ❤️ సుప్రజ
-</p>
-
+<p style="margin-top:15px;font-weight:bold;color:#b48a3c;">— ప్రేమతో,<br>కిషోర్ ❤️ సుప్రజ</p>
 <div class="tagline">#KishRaja 💖</div>
 </div>
 
@@ -300,6 +172,56 @@ animation:fall linear infinite;
 <script>
 var weddingDate = new Date("March 4, 2026 22:37:00").getTime();
 var celebrationStarted = false;
+
+var daysEl=document.getElementById("days");
+var hoursEl=document.getElementById("hours");
+var minutesEl=document.getElementById("minutes");
+var secondsEl=document.getElementById("seconds");
+
+function updateCountdown(){
+var now=new Date().getTime();
+var diff=weddingDate-now;
+
+var d=Math.floor(diff/(1000*60*60*24));
+var h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+var m=Math.floor((diff%(1000*60*60))/(1000*60));
+var s=Math.floor((diff%(1000*60))/1000);
+
+daysEl.innerText=d;
+hoursEl.innerText=h;
+minutesEl.innerText=m;
+secondsEl.innerText=s;
+
+/* Update circular progress */
+updateCircle(daysEl,d,365);
+updateCircle(hoursEl,h,24);
+updateCircle(minutesEl,m,60);
+updateCircle(secondsEl,s,60);
+
+if(diff<=0 && !celebrationStarted){
+celebrationStarted=true;
+playSound(); showPopup(); startPetals(); launchFireworks();
+setInterval(launchFireworks,2000);
+}
+}
+
+/* CIRCULAR PROGRESS */
+function updateCircle(el,value,max){
+var parent=el.parentElement;
+var circle=parent.querySelector(".circle-progress");
+var offset=226*(1-value/max);
+circle.style.strokeDashoffset=offset;
+}
+
+/* FLOWERS */
+for(let i=0;i<40;i++){
+let f=document.createElement("div");
+f.className="flower";
+f.innerHTML="🌸";
+f.style.left=Math.random()*100+"vw";
+f.style.animationDuration=(5+Math.random()*6)+"s";
+document.body.appendChild(f);
+}
 
 /* FIREWORKS */
 function launchFireworks(){
@@ -323,7 +245,7 @@ document.body.appendChild(p);
 setTimeout(()=>p.remove(),5000);
 }
 
-/* PETALS */
+/* ROSE PETALS */
 function startPetals(){
 setInterval(()=>{
 let p=document.createElement("div");
@@ -342,35 +264,8 @@ let audio=new Audio("https://cdn.pixabay.com/audio/2022/03/15/audio_4b2f96e0a6.m
 audio.play();
 }
 
-/* COUNTDOWN */
-setInterval(function(){
-var now = new Date().getTime();
-var diff = weddingDate - now;
-
-days.innerText=Math.floor(diff/86400000);
-hours.innerText=Math.floor(diff%86400000/3600000);
-minutes.innerText=Math.floor(diff%3600000/60000);
-seconds.innerText=Math.floor(diff%60000/1000);
-
-if(diff<=0 && !celebrationStarted){
-celebrationStarted=true;
-playSound();
-showPopup();
-startPetals();
-launchFireworks();
-setInterval(launchFireworks,2000);
-}
-},1000);
-
-/* FLOWERS */
-for(let i=0;i<40;i++){
-let f=document.createElement("div");
-f.className="flower";
-f.innerHTML="🌸";
-f.style.left=Math.random()*100+"vw";
-f.style.animationDuration=(5+Math.random()*6)+"s";
-document.body.appendChild(f);
-}
+setInterval(updateCountdown,1000);
+updateCountdown();
 </script>
 
 </body>
