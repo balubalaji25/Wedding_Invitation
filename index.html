@@ -29,20 +29,13 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
 .subtitle { font-size:19px; margin-bottom:25px; }
 
 /* COUNTDOWN */
-.countdown { display:flex; justify-content:center; gap:8px; margin-bottom:30px; flex-wrap: nowrap; overflow-x: auto; }
-.circle-container { position:relative; width:75px; height:75px; min-width:65px; }
-.circle-svg { transform:rotate(-90deg); width:75px; height:75px; }
+.countdown { display:flex; justify-content:center; gap:4px; margin-bottom:30px; flex-wrap: nowrap; overflow: hidden; }
+.circle-container { position:relative; width:50px; height:50px; min-width:50px; }
+.circle-svg { transform:rotate(-90deg); width:50px; height:50px; }
 .circle-bg { fill:none; stroke:rgba(0,0,0,0.04); stroke-width:6; }
 .circle-progress { fill:none; stroke:#b48a3c; stroke-width:6; stroke-linecap:round; transition:stroke-dashoffset 1s linear; stroke-dasharray:213; stroke-dashoffset:213; }
-.circle-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:16px; font-weight:bold; color:#4b3b2a; line-height:1; width:100%; white-space:nowrap; }
-.circle-small { font-size:10px; color:#6d5b4b; display:block; margin-top:3px; }
-
-/* MOBILE ADJUSTMENTS */
-@media (max-width: 400px){
-    .circle-container { width:60px; height:60px; }
-    .circle-text { font-size:14px; }
-    .circle-small { font-size:8px; }
-}
+.circle-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:12px; font-weight:bold; color:#4b3b2a; line-height:1; width:100%; white-space:nowrap; }
+.circle-small { font-size:7px; color:#6d5b4b; display:block; margin-top:1px; }
 
 /* SECTIONS */
 .section { margin:25px 0; padding:20px; border-radius:18px; background:rgba(255,255,255,0.45); border:1px solid rgba(255,255,255,0.3); }
@@ -50,7 +43,7 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
 .section p { margin:5px 0; }
 .btn { display:inline-block; margin-top:15px; padding:10px 25px; border-radius:30px; background:linear-gradient(135deg,#c9a14a,#9f7c2a); color:white; font-weight:bold; font-size:14px; }
 
-/* FLOWERS IN FRONT */
+/* FLOWERS */
 .flower { position:absolute; top:-50px; pointer-events:none; animation:fall linear infinite; font-size:24px; z-index:5; opacity:0.9; }
 @keyframes fall { to{transform:translateY(110vh) rotate(360deg);} }
 </style>
@@ -68,31 +61,19 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
         <!-- COUNTDOWN -->
         <div class="countdown">
             <div class="circle-container">
-                <svg class="circle-svg">
-                    <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
-                    <circle class="circle-progress" id="circ-days" cx="37.5" cy="37.5" r="34"/>
-                </svg>
+                <svg class="circle-svg"><circle class="circle-bg" cx="25" cy="25" r="23"/><circle class="circle-progress" id="circ-days" cx="25" cy="25" r="23"/></svg>
                 <div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
             </div>
             <div class="circle-container">
-                <svg class="circle-svg">
-                    <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
-                    <circle class="circle-progress" id="circ-hours" cx="37.5" cy="37.5" r="34"/>
-                </svg>
+                <svg class="circle-svg"><circle class="circle-bg" cx="25" cy="25" r="23"/><circle class="circle-progress" id="circ-hours" cx="25" cy="25" r="23"/></svg>
                 <div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
             </div>
             <div class="circle-container">
-                <svg class="circle-svg">
-                    <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
-                    <circle class="circle-progress" id="circ-minutes" cx="37.5" cy="37.5" r="34"/>
-                </svg>
+                <svg class="circle-svg"><circle class="circle-bg" cx="25" cy="25" r="23"/><circle class="circle-progress" id="circ-minutes" cx="25" cy="25" r="23"/></svg>
                 <div class="circle-text"><span id="minutes">0</span><span class="circle-small">Min</span></div>
             </div>
             <div class="circle-container">
-                <svg class="circle-svg">
-                    <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
-                    <circle class="circle-progress" id="circ-seconds" cx="37.5" cy="37.5" r="34"/>
-                </svg>
+                <svg class="circle-svg"><circle class="circle-bg" cx="25" cy="25" r="23"/><circle class="circle-progress" id="circ-seconds" cx="25" cy="25" r="23"/></svg>
                 <div class="circle-text"><span id="seconds">0</span><span class="circle-small">Sec</span></div>
             </div>
         </div>
@@ -140,24 +121,23 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
 var weddingDate = new Date("March 4, 2026 22:37:00").getTime();
 var fireworksStarted=false;
 
-// COUNTDOWN
 function updateCountdown(){
-    var now = new Date().getTime();
-    var diff = weddingDate - now;
-    var d = Math.max(0, Math.floor(diff/(1000*60*60*24)));
-    var h = Math.max(0, Math.floor((diff%(1000*60*60*24))/(1000*60*60)));
-    var m = Math.max(0, Math.floor((diff%(1000*60*60))/(1000*60)));
-    var s = Math.max(0, Math.floor((diff%(1000*60))/1000));
+    var now=new Date().getTime();
+    var diff=weddingDate-now;
+    var d=Math.max(0,Math.floor(diff/(1000*60*60*24)));
+    var h=Math.max(0,Math.floor((diff%(1000*60*60*24))/(1000*60*60)));
+    var m=Math.max(0,Math.floor((diff%(1000*60*60))/(1000*60)));
+    var s=Math.max(0,Math.floor((diff%(1000*60))/1000));
 
     document.getElementById("days").innerText=d;
     document.getElementById("hours").innerText=h;
     document.getElementById("minutes").innerText=m;
     document.getElementById("seconds").innerText=s;
 
-    updateCircle("circ-days", d, 365);
-    updateCircle("circ-hours", h, 24);
-    updateCircle("circ-minutes", m, 60);
-    updateCircle("circ-seconds", s, 60);
+    updateCircle("circ-days",d,365);
+    updateCircle("circ-hours",h,24);
+    updateCircle("circ-minutes",m,60);
+    updateCircle("circ-seconds",s,60);
 
     if(diff<=0 && !fireworksStarted){
         fireworksStarted=true;
