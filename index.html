@@ -4,168 +4,135 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kishore ❤️ Supraja Wedding</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="stylesheet">
 <style>
-body{
-margin:0;
-font-family:'Poppins',sans-serif;
-background:#f8f5f0;
-color:#4b3b2a;
-overflow-x:hidden;
-}
+body{ margin:0; font-family:'Poppins',sans-serif; background:#f8f5f0; color:#4b3b2a; overflow-x:hidden; }
 
 /* SPLASH */
-#splash{
-position:fixed;width:100%;height:100%;background:white;
-display:flex;flex-direction:column;align-items:center;justify-content:center;
-z-index:9999;
-animation:fadeOut 4s forwards 3s;
-}
+#splash{ position:fixed;width:100%;height:100%;background:white; display:flex;flex-direction:column;align-items:center;justify-content:center; z-index:9999; animation:fadeOut 4s forwards 3s; }
 .splash-title{font-family:'Great Vibes';font-size:60px;color:#b48a3c;}
 .splash-tag{font-size:24px;color:#9f7c2a;font-weight:bold;margin-top:10px;}
 @keyframes fadeOut{to{opacity:0;visibility:hidden;}}
 
 /* MAIN */
-.overlay{background:rgba(255,255,255,.92);min-height:100vh;padding:30px;display:flex;justify-content:center;}
-.card{max-width:700px;text-align:center;}
+.overlay{background:rgba(255,255,255,.92);min-height:100vh;padding:20px;display:flex;justify-content:center;}
+.card{max-width:700px;text-align:center; width:100%;}
 
 /* LOGO */
 .logo-wrapper{position:relative;display:inline-block;margin-bottom:25px;}
-.logo{width:170px;height:170px;object-fit:cover;border-radius:50%;border:6px solid #c9a14a;
-box-shadow:0 0 25px rgba(201,161,74,.7);animation:logoPulse 3s infinite;}
-.logo-wrapper::before{content:"";position:absolute;top:-12px;left:-12px;width:194px;height:194px;
-border-radius:50%;border:3px dashed #e6c873;animation:spin 12s linear infinite;}
+.logo{width:170px;height:170px;object-fit:cover;border-radius:50%;border:6px solid #c9a14a; box-shadow:0 0 25px rgba(201,161,74,.7);animation:logoPulse 3s infinite;}
+.logo-wrapper::before{content:"";position:absolute;top:-12px;left:-12px;width:194px;height:194px; border-radius:50%;border:3px dashed #e6c873;animation:spin 12s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
-@keyframes logoPulse{0%{transform:scale(1);}50%{transform:scale(1.06);}100%{transform:scale(1);}}
+@keyframes logoPulse{0%, 100%{transform:scale(1);} 50%{transform:scale(1.06);}}
 .logo-title{font-family:'Great Vibes';font-size:48px;color:#b48a3c;}
 .subtitle{font-size:22px;margin-bottom:20px;}
 
-/* CIRCULAR COUNTDOWN */
-.countdown{display:flex;justify-content:center;gap:12px;flex-wrap:nowrap;overflow-x:auto;}
+/* GLOWING CIRCULAR COUNTDOWN */
+.countdown{display:flex;justify-content:center;gap:10px;flex-wrap:nowrap;overflow-x:auto; padding:10px 0;}
 
-.circle-container{position:relative;width:80px;height:80px;}
-.circle-svg{transform:rotate(-90deg);}
-.circle-bg,.circle-progress{fill:none;stroke-width:8;}
-.circle-bg{stroke:rgba(0,0,0,0.08);}
-.circle-progress{stroke:#b48a3c;stroke-linecap:round;transition:stroke-dashoffset 1s linear;}
-.circle-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-font-size:18px;font-weight:bold;text-align:center;color:#4b3b2a;line-height:1.1;}
-.circle-small{font-size:10px;color:#6d5b4b;display:block;letter-spacing:1px;}
+.circle-container{position:relative;width:75px;height:75px;background:transparent;flex-shrink:0;}
+.circle-svg{transform:rotate(-90deg); width:75px; height:75px; filter: drop-shadow(0 0 5px rgba(201, 161, 74, 0.6));}
+
+.circle-bg,.circle-progress{fill:none;stroke-width:6;}
+.circle-bg{stroke:rgba(0,0,0,0.05);}
+.circle-progress{
+    stroke:#b48a3c;
+    stroke-linecap:round;
+    transition:stroke-dashoffset 1s linear;
+    stroke-dasharray:213; 
+    stroke-dashoffset:213;
+    animation: glowPulse 2s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+    0%, 100% { filter: drop-shadow(0 0 2px #b48a3c); opacity: 1; }
+    50% { filter: drop-shadow(0 0 8px #c9a14a); opacity: 0.9; }
+}
+
+.circle-text{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-size:16px;font-weight:bold;text-align:center;color:#4b3b2a;
+    line-height:1; width:100%; white-space: nowrap;
+}
+.circle-small{font-size:9px;color:#6d5b4b;display:block;letter-spacing:1px; margin-top:2px;}
 
 /* SECTIONS */
-.section{margin:25px 0;padding:20px;border-radius:12px;background:white;
-box-shadow:0 5px 25px rgba(0,0,0,.08);}
+.section{margin:25px 0;padding:20px;border-radius:12px;background:white; box-shadow:0 5px 25px rgba(0,0,0,.08);}
 .venue{font-weight:bold;font-size:18px;color:#9f7c2a;margin-top:5px;}
-.btn{display:inline-block;margin-top:10px;padding:10px 18px;border-radius:30px;
-background:linear-gradient(135deg,#c9a14a,#9f7c2a);color:white;text-decoration:none;}
+.btn{display:inline-block;margin-top:10px;padding:10px 18px;border-radius:30px; background:linear-gradient(135deg,#c9a14a,#9f7c2a);color:white;text-decoration:none;}
 .tagline{margin-top:20px;font-size:28px;font-weight:bold;color:#b48a3c;font-family:'Great Vibes';}
 
-/* FLOWERS */
-.flower{position:fixed;top:-50px;font-size:22px;animation:fall linear infinite;z-index:999;}
+/* FLOWERS (Moved to background) */
+.flower{position:fixed;top:-50px;font-size:22px;animation:fall linear infinite;z-index:-1;}
 @keyframes fall{to{transform:translateY(110vh) rotate(360deg);}}
-/* FIREWORK PARTICLES */
-.firework{position:fixed;width:6px;height:6px;border-radius:50%;
-animation:explode 1.2s linear forwards;z-index:9999;}
+
+/* FIREWORKS & POPUP */
+.firework{position:fixed;width:6px;height:6px;border-radius:50%; animation:explode 1.2s linear forwards;z-index:9999;}
 @keyframes explode{0%{transform:scale(1);opacity:1;}100%{transform:scale(10);opacity:0;}}
-/* POPUP */
-.popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-font-family:'Great Vibes';font-size:70px;color:#c9a14a;text-shadow:0 0 20px gold;
-opacity:0;animation:showPopup 5s forwards;z-index:9999;}
-@keyframes showPopup{0%{opacity:0;transform:translate(-50%,-60%) scale(.5);}
-20%{opacity:1;transform:translate(-50%,-50%) scale(1);}
-80%{opacity:1;}100%{opacity:0;}}
-/* ROSE PETALS */
-.petal{position:fixed;top:-50px;font-size:24px;animation:fall linear infinite;}
+.popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%); font-family:'Great Vibes';font-size:70px;color:#c9a14a;text-shadow:0 0 20px gold; opacity:0;animation:showPopup 5s forwards;z-index:9999;}
+@keyframes showPopup{0%{opacity:0;transform:translate(-50%,-60%) scale(.5);} 20%{opacity:1;transform:translate(-50%,-50%) scale(1);} 80%{opacity:1;} 100%{opacity:0;}}
+.petal{position:fixed;top:-50px;font-size:24px;animation:fall linear infinite; z-index:-1;}
 </style>
 </head>
 <body>
 
-<!-- SPLASH -->
 <div id="splash">
-<div class="splash-title">Kishore ❤️ Supraja</div>
-<div class="splash-tag">#KishRaja 💖</div>
+    <div class="splash-title">Kishore ❤️ Supraja</div>
+    <div class="splash-tag">#KishRaja 💖</div>
 </div>
 
 <div class="overlay">
 <div class="card">
+    <div class="logo-wrapper"><img src="ks-bg.jpg" class="logo"></div>
+    <div class="logo-title">Save the Date ✨</div>
+    <div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
 
-<!-- LOGO -->
-<div class="logo-wrapper">
-<img src="ks-bg.jpg" class="logo">
-</div>
+    <div class="countdown">
+        <div class="circle-container">
+            <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" cx="37.5" cy="37.5" r="34""")/>></svg>
+            <div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
+        </div>
+        <div class="circle-container">
+            <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" cx="37.5" cy="37.5" r="34""")/>></svg>
+            <div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
+        </div>
+        <div class="circle-container">
+            <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" cx="37.5" cy="37.5" r="34""")/>></svg>
+            <div class="circle-text"><span id="minutes">0</span><span class="circle-small">Min</span></div>
+        </div>
+        <div class="circle-container">
+            <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" cx="37.5" cy="37.5" r="34""")/>></svg>
+            <div class="circle-text"><span id="seconds">0</span><span class="circle-small">Sec</span></div>
+        </div>
+    </div>
 
-<div class="logo-title">Save the Date ✨</div>
-<div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
+    <div class="section">
+        <h3>🌼 Haldi & Mehendi</h3>
+        <p>📅 2nd March 2026</p>
+        <div class="venue">📍 Function Hall</div>
+        <a class="btn" href="https://share.google">🧭 Navigate</a>
+    </div>
 
-<!-- CIRCULAR COUNTDOWN -->
-<div class="countdown">
-<div class="circle-container">
-<svg class="circle-svg" width="80" height="80">
-<circle class="circle-bg" cx="40" cy="40" r="36"/>
-<circle class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226" stroke-dashoffset="226"/>
-</svg>
-<div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
-</div>
+    <div class="section">
+        <h3>💍 Wedding</h3>
+        <p>📅 4th March 2026 | 🕒 10:37 PM</p>
+        <div class="venue">📍 Padmavathi Convention Hall, Chirala</div>
+        <a class="btn" href="https://share.google">🧭 Navigate</a>
+    </div>
 
-<div class="circle-container">
-<svg class="circle-svg" width="80" height="80">
-<circle class="circle-bg" cx="40" cy="40" r="36"/>
-<circle class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226" stroke-dashoffset="226"/>
-</svg>
-<div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
-</div>
+    <div class="section">
+        <h3>🎉 Reception</h3>
+        <p>📅 5th March 2026 | 🕒 From 12 PM</p>
+        <div class="venue">📍 HO Convention Hall, Vijayawada</div>
+        <a class="btn" href="https://share.google">🧭 Navigate</a>
+    </div>
 
-<div class="circle-container">
-<svg class="circle-svg" width="80" height="80">
-<circle class="circle-bg" cx="40" cy="40" r="36"/>
-<circle class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226" stroke-dashoffset="226"/>
-</svg>
-<div class="circle-text"><span id="minutes">0</span><span class="circle-small">Minutes</span></div>
-</div>
-
-<div class="circle-container">
-<svg class="circle-svg" width="80" height="80">
-<circle class="circle-bg" cx="40" cy="40" r="36"/>
-<circle class="circle-progress" cx="40" cy="40" r="36" stroke-dasharray="226" stroke-dashoffset="226"/>
-</svg>
-<div class="circle-text"><span id="seconds">0</span><span class="circle-small">Seconds</span></div>
-</div>
-</div>
-
-<!-- EVENTS -->
-<div class="section">
-<h3>🌼 Haldi & Mehendi</h3>
-<p>📅 2nd March 2026</p>
-<div class="venue">📍 Function Hall</div>
-<a class="btn" href="https://share.google/sx7oT5CeCxZVOJFxP">🧭 Navigate</a>
-</div>
-
-<div class="section">
-<h3>💍 Wedding</h3>
-<p>📅 4th March 2026 | 🕒 10:37 PM</p>
-<div class="venue">📍 Padmavathi Convention Hall, Chirala</div>
-<a class="btn" href="https://share.google/TO6dX1LdzeXd8PqUN">🧭 Navigate</a>
-</div>
-
-<div class="section">
-<h3>🎉 Reception</h3>
-<p>📅 5th March 2026 | 🕒 From 12 PM</p>
-<div class="venue">📍 HO Convention Hall, Vijayawada</div>
-<a class="btn" href="https://share.google/kXQd3GLrh7IahK97P">🧭 Navigate</a>
-</div>
-
-<!-- TELUGU MESSAGE -->
-<div class="section">
-<h3>💖 శుభాకాంక్షలతో</h3>
-<p>
-మీ ఆశీర్వాదాలే మా జీవితానికి బలం.<br>
-మా వివాహ మహోత్సవానికి విచ్చేసి<br>
-మమ్మల్ని ఆశీర్వదించవలసిందిగా మనస్ఫూర్తిగా ఆహ్వానిస్తున్నాము.
-</p>
-<p style="margin-top:15px;font-weight:bold;color:#b48a3c;">— ప్రేమతో,<br>కిషోర్ ❤️ సుప్రజ</p>
-<div class="tagline">#KishRaja 💖</div>
-</div>
-
+    <div class="section">
+        <h3>💖 శుభాకాంక్షలతో</h3>
+        <p>మీ ఆశీర్వాదాలే మా జీవితానికి బలం.<br>మా వివాహ మహోత్సవానికి విచ్చేసి<br>మమ్మల్ని ఆశీర్వదించవలసిందిగా మనస్ఫూర్తిగా ఆహ్వానిస్తున్నాము.</p>
+        <p style="margin-top:15px;font-weight:bold;color:#b48a3c;">— ప్రేమతో,<br>కిషోర్ ❤️ సుప్రజ</p>
+        <div class="tagline">#KishRaja 💖</div>
+    </div>
 </div>
 </div>
 
@@ -173,100 +140,78 @@ opacity:0;animation:showPopup 5s forwards;z-index:9999;}
 var weddingDate = new Date("March 4, 2026 22:37:00").getTime();
 var celebrationStarted = false;
 
-var daysEl=document.getElementById("days");
-var hoursEl=document.getElementById("hours");
-var minutesEl=document.getElementById("minutes");
-var secondsEl=document.getElementById("seconds");
-
 function updateCountdown(){
-var now=new Date().getTime();
-var diff=weddingDate-now;
+    var now=new Date().getTime();
+    var diff=weddingDate-now;
 
-var d=Math.floor(diff/(1000*60*60*24));
-var h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-var m=Math.floor((diff%(1000*60*60))/(1000*60));
-var s=Math.floor((diff%(1000*60))/1000);
+    var d=Math.max(0, Math.floor(diff/(1000*60*60*24)));
+    var h=Math.max(0, Math.floor((diff%(1000*60*60*24))/(1000*60*60)));
+    var m=Math.max(0, Math.floor((diff%(1000*60*60))/(1000*60)));
+    var s=Math.max(0, Math.floor((diff%(1000*60))/1000));
 
-daysEl.innerText=d;
-hoursEl.innerText=h;
-minutesEl.innerText=m;
-secondsEl.innerText=s;
+    document.getElementById("days").innerText=d;
+    document.getElementById("hours").innerText=h;
+    document.getElementById("minutes").innerText=m;
+    document.getElementById("seconds").innerText=s;
 
-/* Update circular progress */
-updateCircle(daysEl,d,365);
-updateCircle(hoursEl,h,24);
-updateCircle(minutesEl,m,60);
-updateCircle(secondsEl,s,60);
+    updateCircle("days", d, 365);
+    updateCircle("hours", h, 24);
+    updateCircle("minutes", m, 60);
+    updateCircle("seconds", s, 60);
 
-if(diff<=0 && !celebrationStarted){
-celebrationStarted=true;
-playSound(); showPopup(); startPetals(); launchFireworks();
-setInterval(launchFireworks,2000);
-}
-}
-
-/* CIRCULAR PROGRESS */
-function updateCircle(el,value,max){
-var parent=el.parentElement;
-var circle=parent.querySelector(".circle-progress");
-var offset=226*(1-value/max);
-circle.style.strokeDashoffset=offset;
+    if(diff<=0 && !celebrationStarted){
+        celebrationStarted=true;
+        showPopup(); startPetals(); launchFireworks();
+        setInterval(launchFireworks,2000);
+    }
 }
 
-/* FLOWERS */
+function updateCircle(id, value, max){
+    var el = document.getElementById(id);
+    var circle = el.closest('.circle-container').querySelector(".circle-progress");
+    var offset = 213 * (1 - value/max);
+    circle.style.strokeDashoffset = offset;
+}
+
+// Background Flowers
 for(let i=0;i<40;i++){
-let f=document.createElement("div");
-f.className="flower";
-f.innerHTML="🌸";
-f.style.left=Math.random()*100+"vw";
-f.style.animationDuration=(5+Math.random()*6)+"s";
-document.body.appendChild(f);
+    let f=document.createElement("div");
+    f.className="flower"; f.innerHTML="🌸";
+    f.style.left=Math.random()*100+"vw";
+    f.style.animationDuration=(5+Math.random()*6)+"s";
+    document.body.appendChild(f);
 }
 
-/* FIREWORKS */
 function launchFireworks(){
-for(let i=0;i<60;i++){
-let f=document.createElement("div");
-f.className="firework";
-f.style.left=Math.random()*100+"vw";
-f.style.top=Math.random()*100+"vh";
-f.style.background="hsl("+Math.random()*360+",100%,60%)";
-document.body.appendChild(f);
-setTimeout(()=>f.remove(),1200);
-}
+    for(let i=0;i<60;i++){
+        let f=document.createElement("div");
+        f.className="firework";
+        f.style.left=Math.random()*100+"vw"; f.style.top=Math.random()*100+"vh";
+        f.style.background="hsl("+Math.random()*360+",100%,60%)";
+        document.body.appendChild(f);
+        setTimeout(()=>f.remove(),1200);
+    }
 }
 
-/* POPUP */
 function showPopup(){
-let p=document.createElement("div");
-p.className="popup";
-p.innerHTML="Just Married 💖";
-document.body.appendChild(p);
-setTimeout(()=>p.remove(),5000);
+    let p=document.createElement("div");
+    p.className="popup"; p.innerHTML="Just Married 💖";
+    document.body.appendChild(p);
 }
 
-/* ROSE PETALS */
 function startPetals(){
-setInterval(()=>{
-let p=document.createElement("div");
-p.className="petal";
-p.innerHTML="🌹";
-p.style.left=Math.random()*100+"vw";
-p.style.animationDuration=(4+Math.random()*4)+"s";
-document.body.appendChild(p);
-setTimeout(()=>p.remove(),8000);
-},300);
-}
-
-/* SOUND */
-function playSound(){
-let audio=new Audio("https://cdn.pixabay.com/audio/2022/03/15/audio_4b2f96e0a6.mp3");
-audio.play();
+    setInterval(()=>{
+        let p=document.createElement("div");
+        p.className="petal"; p.innerHTML="🌹";
+        p.style.left=Math.random()*100+"vw";
+        p.style.animationDuration=(4+Math.random()*4)+"s";
+        document.body.appendChild(p);
+        setTimeout(()=>p.remove(),8000);
+    },300);
 }
 
 setInterval(updateCountdown,1000);
 updateCountdown();
 </script>
-
 </body>
 </html>
