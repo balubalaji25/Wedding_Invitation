@@ -4,100 +4,90 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kishore ❤️ Supraja Wedding</title>
-<link href="https://fonts.googleapis.com" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 <style>
-body { margin: 0; font-family: 'Poppins', sans-serif; background: #fdfbf7; color: #4b3b2a; overflow-x: hidden; }
+body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b3b2a; overflow-x:hidden; }
 
-/* 1. STYLISH SPLASH SCREEN (Tagline Only) */
-#splash { position: fixed; width: 100%; height: 100%; background: white; display: flex; align-items: center; justify-content: center; z-index: 9999; animation: fadeOut 4s forwards 3s; }
-.splash-tag { font-family: 'Great Vibes'; font-size: 60px; background: linear-gradient(to right, #b48a3c, #e6c873, #b48a3c); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 3s linear infinite, softPulse 2s infinite alternate; }
-@keyframes shine { to { background-position: 200% center; } }
-@keyframes softPulse { from { transform: scale(1); } to { transform: scale(1.05); } }
-@keyframes fadeOut{ to{ opacity: 0; visibility: hidden; } }
+/* SPLASH */
+#splash { position:fixed; width:100%; height:100%; background:white; display:flex; align-items:center; justify-content:center; z-index:9999; animation:fadeOut 4s forwards 3s; }
+.splash-tag { font-family:'Great Vibes'; font-size:60px; background: linear-gradient(to right,#b48a3c,#e6c873,#b48a3c); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:shine 3s linear infinite, softPulse 2s infinite alternate; }
+@keyframes shine { to { background-position:200% center; } }
+@keyframes softPulse { from{transform:scale(1);} to{transform:scale(1.05);} }
+@keyframes fadeOut{ to{opacity:0;visibility:hidden;} }
 
-/* 2. MAIN GLASS CARD (Fixes the "Double Box" issue) */
-.overlay { 
-    background: transparent !important; /* Forces background to be invisible */
-    min-height: 100vh; 
-    display: flex; 
-    justify-content: center; 
-    padding: 20px 10px; 
-}
-.card { 
-    max-width: 550px; width: 100%; text-align: center; padding: 40px 20px; border-radius: 30px;
-    background: rgba(255, 255, 255, 0.7); /* Semi-transparent for flowers */
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border: 1.5px solid rgba(255, 255, 255, 0.4); 
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); 
-    z-index: 1; /* Sits above falling flowers */
-}
+/* CARD */
+.overlay { display:flex; justify-content:center; padding:20px; position:relative; }
+.card { max-width:550px; width:100%; text-align:center; padding:40px 20px; border-radius:30px; background:rgba(255,255,255,0.75); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1.5px solid rgba(255,255,255,0.5); box-shadow:0 20px 50px rgba(0,0,0,0.05); z-index:1; position:relative; }
 
-/* 3. LOGO & TITLES */
-.logo-wrapper { position: relative; display: inline-block; margin-bottom: 25px; }
-.logo { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 5px solid #c9a14a; box-shadow: 0 0 20px rgba(201,161,74,0.4); animation: logoPulse 3s infinite; }
-.logo-wrapper::before { content: ""; position: absolute; top: -10px; left: -10px; width: 180px; height: 180px; border-radius: 50%; border: 2px dashed #e6c873; animation: spin 15s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes logoPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+/* LOGO */
+.logo-wrapper { position:relative; display:inline-block; margin-bottom:25px; }
+.logo { width:160px; height:160px; object-fit:cover; border-radius:50%; border:5px solid #c9a14a; animation:logoPulse 3s infinite; }
+.logo-wrapper::before { content:""; position:absolute; top:-10px; left:-10px; width:180px; height:180px; border-radius:50%; border:2px dashed #e6c873; animation:spin 15s linear infinite; }
+@keyframes spin { to{transform:rotate(360deg);} }
+@keyframes logoPulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
+.logo-title { font-family:'Great Vibes'; font-size:50px; color:#b48a3c; margin:10px 0; }
+.subtitle { font-size:19px; margin-bottom:25px; }
 
-.logo-title { font-family: 'Great Vibes'; font-size: 50px; color: #b48a3c; margin: 10px 0; }
-.subtitle { font-size: 19px; margin-bottom: 25px; font-weight: 300; }
+/* COUNTDOWN */
+.countdown { display:flex; justify-content:center; gap:8px; margin-bottom:30px; flex-wrap:wrap; }
+.circle-container { position:relative; width:75px; height:75px; }
+.circle-svg { transform:rotate(-90deg); width:75px; height:75px; }
+.circle-bg { fill:none; stroke:rgba(0,0,0,0.04); stroke-width:6; }
+.circle-progress { fill:none; stroke:#b48a3c; stroke-width:6; stroke-linecap:round; transition:stroke-dashoffset 1s linear; stroke-dasharray:213; stroke-dashoffset:213; }
+.circle-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:16px; font-weight:bold; color:#4b3b2a; line-height:1; width:100%; white-space:nowrap; }
+.circle-small { font-size:10px; color:#6d5b4b; display:block; margin-top:3px; }
 
-/* 4. COUNTDOWN (Fixes the "Rectangular Box" blinking) */
-.countdown { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
-.circle-container { position: relative; width: 75px; height: 75px; background: transparent !important; }
-.circle-svg { transform: rotate(-90deg); width: 75px; height: 75px; background: transparent; }
-.circle-bg { fill: none; stroke: rgba(0, 0, 0, 0.04); stroke-width: 6; }
-.circle-progress { fill: none; stroke: #b48a3c; stroke-width: 6; stroke-linecap: round; transition: stroke-dashoffset 1s linear; stroke-dasharray: 213; stroke-dashoffset: 213; }
-.circle-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 16px; font-weight: bold; color: #4b3b2a; line-height: 1; width: 100%; white-space: nowrap; }
-.circle-small { font-size: 9px; color: #6d5b4b; display: block; margin-top: 3px; letter-spacing: 1px; }
+/* SECTIONS */
+.section { margin:25px 0; padding:20px; border-radius:18px; background:rgba(255,255,255,0.45); border:1px solid rgba(255,255,255,0.3); }
+.section h3 { color:#b48a3c; font-family:'Playfair Display'; margin-top:0; }
+.btn { display:inline-block; margin-top:15px; padding:10px 25px; border-radius:30px; background:linear-gradient(135deg,#c9a14a,#9f7c2a); color:white; font-weight:bold; font-size:14px; }
 
-/* 5. SECTIONS & BUTTONS */
-.section { margin: 25px 0; padding: 20px; border-radius: 18px; background: rgba(255, 255, 255, 0.45) !important; border: 1px solid rgba(255, 255, 255, 0.3); }
-.venue { font-weight: bold; font-size: 17px; color: #9f7c2a; margin-top: 8px; }
-.btn { display: inline-block; margin-top: 15px; padding: 10px 25px; border-radius: 30px; background: linear-gradient(135deg, #c9a14a, #9f7c2a); color: white; text-decoration: none; font-size: 14px; font-weight: bold; box-shadow: 0 5px 15px rgba(159, 124, 42, 0.2); }
-
-/* 6. BACKGROUND FLOWERS */
-.flower, .petal { position: fixed; top: -50px; pointer-events: none; animation: fall linear infinite; z-index: -1; opacity: 0.6; }
-@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
-
-/* 7. CELEBRATION EFFECTS */
-.firework { position: fixed; width: 6px; height: 6px; border-radius: 50%; animation: explode 1.2s linear forwards; z-index: 9999; }
-@keyframes explode { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(10); opacity: 0; } }
-.popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Great Vibes'; font-size: 70px; color: #c9a14a; text-shadow: 0 0 20px gold; opacity: 0; animation: showPopup 5s forwards; z-index: 9999; }
-@keyframes showPopup { 0% { opacity:0; transform:translate(-50%,-60%) scale(.5); } 20% { opacity:1; transform:translate(-50%,-50%) scale(1); } 100% { opacity:0; } }
+/* FLOWERS IN FRONT */
+.flower { position:absolute; top:-50px; pointer-events:none; animation:fall linear infinite; font-size:24px; z-index:5; opacity:0.9; }
+@keyframes fall { to{transform:translateY(110vh) rotate(360deg);} }
 </style>
 </head>
 <body>
 
-<!-- SPLASH SCREEN -->
-<div id="splash">
-    <div class="splash-tag">#KishRaja 💖</div>
-</div>
+<!-- SPLASH -->
+<div id="splash"><div class="splash-tag">#KishRaja 💖</div></div>
 
 <div class="overlay">
     <div class="card">
         <!-- LOGO -->
-        <div class="logo-wrapper"><img src="ks-bg.jpg" class="logo"></div>
+        <div class="logo-wrapper"><img src="ks-bg.jpg" class="logo" alt="KishRaja"></div>
         <div class="logo-title">Save the Date ✨</div>
         <div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
 
         <!-- COUNTDOWN -->
         <div class="countdown">
             <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-days" cx="37.5" cy="37.5" r="34""")/>></svg>
-                <div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
+                <svg class="circle-svg">
+                    <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
+                    <circle class="circle-progress" id="circ-days" cx="37.5" cy="37.5" r="34"/>
+                </svg>
+                <div class="circle-text">📅 <span id="days">0</span><span class="circle-small">Days</span></div>
             </div>
             <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-hours" cx="37.5" cy="37.5" r="34""")/>></svg>
-                <div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
+                <svg class="circle-svg">
+                    <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
+                    <circle class="circle-progress" id="circ-hours" cx="37.5" cy="37.5" r="34"/>
+                </svg>
+                <div class="circle-text">🕒 <span id="hours">0</span><span class="circle-small">Hours</span></div>
             </div>
             <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-minutes" cx="37.5" cy="37.5" r="34""")/>></svg>
-                <div class="circle-text"><span id="minutes">0</span><span class="circle-small">Min</span></div>
+                <svg class="circle-svg">
+                    <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
+                    <circle class="circle-progress" id="circ-minutes" cx="37.5" cy="37.5" r="34"/>
+                </svg>
+                <div class="circle-text">🕒 <span id="minutes">0</span><span class="circle-small">Min</span></div>
             </div>
             <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-seconds" cx="37.5" cy="37.5" r="34""")/>></svg>
-                <div class="circle-text"><span id="seconds">0</span><span class="circle-small">Sec</span></div>
+                <svg class="circle-svg">
+                    <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
+                    <circle class="circle-progress" id="circ-seconds" cx="37.5" cy="37.5" r="34"/>
+                </svg>
+                <div class="circle-text">🕒 <span id="seconds">0</span><span class="circle-small">Sec</span></div>
             </div>
         </div>
 
@@ -105,104 +95,94 @@ body { margin: 0; font-family: 'Poppins', sans-serif; background: #fdfbf7; color
         <div class="section">
             <h3>🌼 Haldi & Mehendi</h3>
             <p>📅 2nd March 2026</p>
-            <div class="venue">📍 Function Hall</div>
-            <a class="btn" href="https://share.google">🧭 Navigate</a>
+            <div>📍 Swarna Palace Apartment, Vetapalem</div>
+            <a class="btn" href="https://share.google/sx7oT5CeCxZVOJFxP" target="_blank">🧭 Navigate</a>
         </div>
 
         <div class="section">
             <h3>💍 Wedding</h3>
             <p>📅 4th March 2026 | 🕒 10:37 PM</p>
-            <div class="venue">📍 Padmavathi Convention Hall, Chirala</div>
-            <a class="btn" href="https://share.google">🧭 Navigate</a>
+            <div>📍 Padmavathi Convention Hall, Chirala</div>
+            <a class="btn" href="https://share.google/TO6dX1LdzeXd8PqUN" target="_blank">🧭 Navigate</a>
         </div>
 
         <div class="section">
             <h3>🎉 Reception</h3>
             <p>📅 5th March 2026 | 🕒 From 12 PM</p>
-            <div class="venue">📍 HO Convention Hall, Vijayawada</div>
-            <a class="btn" href="https://share.google">🧭 Navigate</a>
+            <div>📍 HO Convention Hall, Vijayawada</div>
+            <a class="btn" href="https://share.google/kXQd3GLrh7IahK97P" target="_blank">🧭 Navigate</a>
         </div>
 
-        <!-- TELUGU QUOTE -->
+        <!-- TELUGU ENDING -->
         <div class="section">
-            <h3 style="font-family: 'Great Vibes'; font-size: 32px; color: #b48a3c;">💖 శుభాకాంక్షలతో</h3>
+            <h3 style="font-family:'Great Vibes'; font-size:32px; color:#b48a3c;">💖 శుభాకాంక్షలతో</h3>
             <p>
                 మీ ఆశీర్వాదాలే మా జీవితానికి బలం.<br>
                 మా వివాహ మహోత్సవానికి విచ్చేసి<br>
                 మమ్మల్ని ఆశీర్వదించవలసిందిగా మనస్ఫూర్తిగా ఆహ్వానిస్తున్నాము.
             </p>
             <p style="margin-top:15px; font-weight:bold; color:#b48a3c;">— ప్రేమతో,<br>కిషోర్ ❤️ సుప్రజ</p>
-            <div style="font-family: 'Great Vibes'; font-size: 28px; margin-top: 10px;">#KishRaja 💖</div>
+            <div style="font-family:'Great Vibes'; font-size:28px; margin-top:10px;">#KishRaja 💖</div>
         </div>
     </div>
 </div>
 
 <script>
 var weddingDate = new Date("March 4, 2026 22:37:00").getTime();
-var celebrationStarted = false;
+var fireworksStarted=false;
 
+// COUNTDOWN
 function updateCountdown(){
     var now = new Date().getTime();
     var diff = weddingDate - now;
-
     var d = Math.max(0, Math.floor(diff/(1000*60*60*24)));
     var h = Math.max(0, Math.floor((diff%(1000*60*60*24))/(1000*60*60)));
     var m = Math.max(0, Math.floor((diff%(1000*60*60))/(1000*60)));
     var s = Math.max(0, Math.floor((diff%(1000*60))/1000));
 
-    document.getElementById("days").innerText = d;
-    document.getElementById("hours").innerText = h;
-    document.getElementById("minutes").innerText = m;
-    document.getElementById("seconds").innerText = s;
+    document.getElementById("days").innerText=d;
+    document.getElementById("hours").innerText=h;
+    document.getElementById("minutes").innerText=m;
+    document.getElementById("seconds").innerText=s;
 
     updateCircle("circ-days", d, 365);
     updateCircle("circ-hours", h, 24);
     updateCircle("circ-minutes", m, 60);
     updateCircle("circ-seconds", s, 60);
 
-    if(diff <= 0 && !celebrationStarted){
-        celebrationStarted = true;
-        showPopup(); startPetals(); launchFireworks();
-        setInterval(launchFireworks, 2000);
+    if(diff<=0 && !fireworksStarted){
+        fireworksStarted=true;
+        setInterval(launchFireworks,2000);
+        launchFireworks();
     }
 }
 
-function updateCircle(id, value, max){
-    var circle = document.getElementById(id);
-    var offset = 213 * (1 - value/max); // Circumference for r=34
-    circle.style.strokeDashoffset = offset;
+function updateCircle(id,value,max){
+    var circle=document.getElementById(id);
+    circle.style.strokeDashoffset=213*(1-value/max);
 }
 
-// Background Flowers
-for(let i=0; i<35; i++){
-    let f = document.createElement("div"); f.className = "flower"; f.innerHTML = "🌸";
-    f.style.left = Math.random()*100 + "vw"; f.style.animationDuration = (6 + Math.random()*8) + "s";
+// FLOWERS IN FRONT
+for(let i=0;i<35;i++){
+    let f=document.createElement("div"); f.className="flower"; f.innerHTML="🌸";
+    f.style.left=Math.random()*100+"vw"; f.style.animationDuration=(7+Math.random()*10)+"s";
     document.body.appendChild(f);
 }
 
+// FIREWORKS
 function launchFireworks(){
-    for(let i=0; i<45; i++){
-        let f = document.createElement("div"); f.className = "firework";
-        f.style.left = Math.random()*100 + "vw"; f.style.top = Math.random()*100 + "vh";
-        f.style.background = "hsl(" + Math.random()*360 + ",100%,60%)";
-        document.body.appendChild(f); setTimeout(()=>f.remove(), 1200);
+    for(let i=0;i<25;i++){
+        let f=document.createElement("div");
+        f.className="flower";
+        f.innerHTML=["🎆","✨","💥","🎇"][Math.floor(Math.random()*4)];
+        f.style.left=Math.random()*100+"vw";
+        f.style.top=Math.random()*80+"vh";
+        document.body.appendChild(f);
+        setTimeout(()=>f.remove(),1000);
     }
 }
 
-function showPopup(){
-    let p = document.createElement("div"); p.className = "popup"; p.innerHTML = "Just Married 💖";
-    document.body.appendChild(p);
-}
-
-function startPetals(){
-    setInterval(()=>{
-        let p = document.createElement("div"); p.className = "petal"; p.innerHTML = "🌹";
-        p.style.left = Math.random()*100 + "vw"; p.style.animationDuration = (5 + Math.random()*5) + "s";
-        document.body.appendChild(p); setTimeout(()=>p.remove(), 8000);
-    }, 400);
-}
-
-setInterval(updateCountdown, 1000);
+setInterval(updateCountdown,1000);
 updateCountdown();
 </script>
 </body>
