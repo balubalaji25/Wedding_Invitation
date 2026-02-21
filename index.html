@@ -33,27 +33,24 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
   display: flex;
   justify-content: center;
   gap:6px;
-  margin-bottom:30px;
   flex-wrap: nowrap;
-  overflow:hidden;
+  padding:10px 0;
   width:100%;
-  padding:10px 5px; /* ensures circles don’t get cut off */
+  overflow:hidden;
 }
-
 .circle-container {
   position: relative;
   flex: 1 1 0;
-  max-width:55px;
-  height:55px;
-  min-width:0;
+  min-width:50px;
+  max-width:60px;
+  height:60px;
 }
-
-.circle-svg { width:55px; height:55px; transform:rotate(-90deg); }
+.circle-svg { width:100%; height:100%; transform:rotate(-90deg); }
 .circle-bg, .circle-progress { fill:none; stroke-width:5; stroke-linecap:round; }
-.circle-bg { stroke:rgba(0,0,0,0.04); }
-.circle-progress { stroke:#b48a3c; stroke-dasharray:213; stroke-dashoffset:213; transition: stroke-dashoffset 1s linear; }
-.circle-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:bold; color:#4b3b2a; line-height:1; width:100%; white-space:nowrap; }
-.circle-small { font-size:7px; color:#6d5b4b; display:block; margin-top:1px; }
+.circle-bg { stroke:rgba(0,0,0,0.05); }
+.circle-progress { stroke:#b48a3c; stroke-dasharray:188; stroke-dashoffset:188; transition: stroke-dashoffset 0.5s linear; }
+.circle-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:bold; color:#4b3b2a; text-align:center; width:100%; white-space:nowrap; }
+.circle-small { display:block; font-size:7px; color:#6d5b4b; margin-top:1px; }
 
 /* SECTIONS */
 .section { margin:25px 0; padding:20px; border-radius:18px; background:rgba(255,255,255,0.45); border:1px solid rgba(255,255,255,0.3); }
@@ -71,68 +68,69 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
 <div id="splash"><div class="splash-tag">#KishRaja 💖</div></div>
 
 <div class="overlay">
-    <div class="card">
-        <div class="logo-wrapper"><img src="ks-bg.jpg" class="logo" alt="KishRaja"></div>
-        <div class="logo-title">Save the Date ✨</div>
-        <div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
+  <div class="card">
+    <div class="logo-wrapper"><img src="ks-bg.jpg" class="logo" alt="KishRaja"></div>
+    <div class="logo-title">Save the Date ✨</div>
+    <div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
 
-        <!-- COUNTDOWN -->
-        <div class="countdown">
-            <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-days" cx="30" cy="30" r="28"/></svg>
-                <div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
-            </div>
-            <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-hours" cx="30" cy="30" r="28"/></svg>
-                <div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
-            </div>
-            <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-minutes" cx="30" cy="30" r="28"/></svg>
-                <div class="circle-text"><span id="minutes">0</span><span class="circle-small">Min</span></div>
-            </div>
-            <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-seconds" cx="30" cy="30" r="28"/></svg>
-                <div class="circle-text"><span id="seconds">0</span><span class="circle-small">Sec</span></div>
-            </div>
-        </div>
-
-        <!-- EVENTS -->
-        <div class="section">
-            <h3>🌼 Haldi & Mehendi</h3>
-            <p>🗓️ 2nd March 2026</p>
-            <p>⏰ From 10:00 AM</p>
-            <p>📍 Swarna Palace Apartment, Vetapalem</p>
-            <a class="btn" href="https://share.google/sx7oT5CeCxZVOJFxP" target="_blank">🧭 Navigate</a>
-        </div>
-
-        <div class="section">
-            <h3>💍 Wedding</h3>
-            <p>🗓️ 4th March 2026</p>
-            <p>⏰ 10:37 PM</p>
-            <p>📍 Padmavathi Convention Hall, Chirala</p>
-            <a class="btn" href="https://share.google/TO6dX1LdzeXd8PqUN" target="_blank">🧭 Navigate</a>
-        </div>
-
-        <div class="section">
-            <h3>🎉 Reception</h3>
-            <p>🗓️ 5th March 2026</p>
-            <p>⏰ From 12:00 PM</p>
-            <p>📍 HO Convention Hall, Vijayawada</p>
-            <a class="btn" href="https://share.google/kXQd3GLrh7IahK97P" target="_blank">🧭 Navigate</a>
-        </div>
-
-        <!-- TELUGU ENDING -->
-        <div class="section">
-            <h3 style="font-family:'Great Vibes'; font-size:32px; color:#b48a3c;">💖 శుభాకాంక్షలతో</h3>
-            <p>
-                మీ ఆశీర్వాదాలే మా జీవితానికి బలం.<br>
-                మా వివాహ మహోత్సవానికి విచ్చేసి<br>
-                మమ్మల్ని ఆశీర్వదించవలసిందిగా మనస్ఫూర్తిగా ఆహ్వానిస్తున్నాము.
-            </p>
-            <p style="margin-top:15px; font-weight:bold; color:#b48a3c;">— ప్రేమతో,<br>కిషోర్ ❤️ సుప్రజ</p>
-            <div style="font-family:'Great Vibes'; font-size:28px; margin-top:10px;">#KishRaja 💖</div>
-        </div>
+    <!-- COUNTDOWN -->
+    <div class="countdown">
+      <div class="circle-container">
+        <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-days" cx="30" cy="30" r="28"/></svg>
+        <div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
+      </div>
+      <div class="circle-container">
+        <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-hours" cx="30" cy="30" r="28"/></svg>
+        <div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
+      </div>
+      <div class="circle-container">
+        <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-minutes" cx="30" cy="30" r="28"/></svg>
+        <div class="circle-text"><span id="minutes">0</span><span class="circle-small">Min</span></div>
+      </div>
+      <div class="circle-container">
+        <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-seconds" cx="30" cy="30" r="28"/></svg>
+        <div class="circle-text"><span id="seconds">0</span><span class="circle-small">Sec</span></div>
+      </div>
     </div>
+
+    <!-- EVENTS -->
+    <div class="section">
+      <h3>🌼 Haldi & Mehendi</h3>
+      <p>🗓️ 2nd March 2026</p>
+      <p>⏰ From 10:00 AM</p>
+      <p>📍 Swarna Palace Apartment, Vetapalem</p>
+      <a class="btn" href="https://share.google/sx7oT5CeCxZVOJFxP" target="_blank">🧭 Navigate</a>
+    </div>
+
+    <div class="section">
+      <h3>💍 Wedding</h3>
+      <p>🗓️ 4th March 2026</p>
+      <p>⏰ 10:37 PM</p>
+      <p>📍 Padmavathi Convention Hall, Chirala</p>
+      <a class="btn" href="https://share.google/TO6dX1LdzeXd8PqUN" target="_blank">🧭 Navigate</a>
+    </div>
+
+    <div class="section">
+      <h3>🎉 Reception</h3>
+      <p>🗓️ 5th March 2026</p>
+      <p>⏰ From 12:00 PM</p>
+      <p>📍 HO Convention Hall, Vijayawada</p>
+      <a class="btn" href="https://share.google/kXQd3GLrh7IahK97P" target="_blank">🧭 Navigate</a>
+    </div>
+
+    <!-- TELUGU ENDING -->
+    <div class="section">
+      <h3 style="font-family:'Great Vibes'; font-size:32px; color:#b48a3c;">💖 శుభాకాంక్షలతో</h3>
+      <p>
+        మీ ఆశీర్వాదాలే మా జీవితానికి బలం.<br>
+        మా వివాహ మహోత్సవానికి విచ్చేసి<br>
+        మమ్మల్ని ఆశీర్వదించవలసిందిగా మనస్ఫూర్తిగా ఆహ్వానిస్తున్నాము.
+      </p>
+      <p style="margin-top:15px; font-weight:bold; color:#b48a3c;">— ప్రేమతో,<br>కిషోర్ ❤️ సుప్రజ</p>
+      <div style="font-family:'Great Vibes'; font-size:28px; margin-top:10px;">#KishRaja 💖</div>
+    </div>
+
+  </div>
 </div>
 
 <script>
@@ -140,53 +138,53 @@ var weddingDate = new Date("March 4, 2026 22:37:00").getTime();
 var fireworksStarted=false;
 
 function updateCountdown(){
-    var now=new Date().getTime();
-    var diff=weddingDate-now;
-    var d=Math.max(0,Math.floor(diff/(1000*60*60*24)));
-    var h=Math.max(0,Math.floor((diff%(1000*60*60*24))/(1000*60*60)));
-    var m=Math.max(0,Math.floor((diff%(1000*60*60))/(1000*60)));
-    var s=Math.max(0,Math.floor((diff%(1000*60))/1000));
+  var now = new Date().getTime();
+  var diff = weddingDate - now;
+  var d = Math.max(0, Math.floor(diff/(1000*60*60*24)));
+  var h = Math.max(0, Math.floor((diff%(1000*60*60*24))/(1000*60*60)));
+  var m = Math.max(0, Math.floor((diff%(1000*60*60))/(1000*60)));
+  var s = Math.max(0, Math.floor((diff%(1000*60))/1000));
 
-    document.getElementById("days").innerText=d;
-    document.getElementById("hours").innerText=h;
-    document.getElementById("minutes").innerText=m;
-    document.getElementById("seconds").innerText=s;
+  document.getElementById("days").innerText = d;
+  document.getElementById("hours").innerText = h;
+  document.getElementById("minutes").innerText = m;
+  document.getElementById("seconds").innerText = s;
 
-    updateCircle("circ-days",d,365);
-    updateCircle("circ-hours",h,24);
-    updateCircle("circ-minutes",m,60);
-    updateCircle("circ-seconds",s,60);
+  updateCircle("circ-days", d, 365);
+  updateCircle("circ-hours", h, 24);
+  updateCircle("circ-minutes", m, 60);
+  updateCircle("circ-seconds", s, 60);
 
-    if(diff<=0 && !fireworksStarted){
-        fireworksStarted=true;
-        setInterval(launchFireworks,2000);
-        launchFireworks();
-    }
+  if(diff<=0 && !fireworksStarted){
+    fireworksStarted=true;
+    setInterval(launchFireworks,2000);
+    launchFireworks();
+  }
 }
 
-function updateCircle(id,value,max){
-    var circle=document.getElementById(id);
-    circle.style.strokeDashoffset=213*(1-value/max);
+function updateCircle(id, value, max){
+  var circle=document.getElementById(id);
+  circle.style.strokeDashoffset=188*(1-value/max);
 }
 
 // FLOWERS
 for(let i=0;i<35;i++){
-    let f=document.createElement("div"); f.className="flower"; f.innerHTML="🌸";
-    f.style.left=Math.random()*100+"vw"; f.style.animationDuration=(7+Math.random()*10)+"s";
-    document.body.appendChild(f);
+  let f=document.createElement("div"); f.className="flower"; f.innerHTML="🌸";
+  f.style.left=Math.random()*100+"vw"; f.style.animationDuration=(7+Math.random()*10)+"s";
+  document.body.appendChild(f);
 }
 
 // FIREWORKS
 function launchFireworks(){
-    for(let i=0;i<25;i++){
-        let f=document.createElement("div");
-        f.className="flower";
-        f.innerHTML=["🎆","✨","💥","🎇"][Math.floor(Math.random()*4)];
-        f.style.left=Math.random()*100+"vw";
-        f.style.top=Math.random()*80+"vh";
-        document.body.appendChild(f);
-        setTimeout(()=>f.remove(),1000);
-    }
+  for(let i=0;i<25;i++){
+    let f=document.createElement("div");
+    f.className="flower";
+    f.innerHTML=["🎆","✨","💥","🎇"][Math.floor(Math.random()*4)];
+    f.style.left=Math.random()*100+"vw";
+    f.style.top=Math.random()*80+"vh";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1000);
+  }
 }
 
 setInterval(updateCountdown,1000);
