@@ -29,12 +29,30 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
 .subtitle { font-size:19px; margin-bottom:25px; }
 
 /* COUNTDOWN */
-.countdown { display:flex; justify-content:center; gap:4px; margin-bottom:30px; flex-wrap: nowrap; overflow: hidden; }
-.circle-container { position:relative; width:50px; height:50px; min-width:50px; }
-.circle-svg { transform:rotate(-90deg); width:50px; height:50px; }
-.circle-bg { fill:none; stroke:rgba(0,0,0,0.04); stroke-width:6; }
-.circle-progress { fill:none; stroke:#b48a3c; stroke-width:6; stroke-linecap:round; transition:stroke-dashoffset 1s linear; stroke-dasharray:213; stroke-dashoffset:213; }
-.circle-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:12px; font-weight:bold; color:#4b3b2a; line-height:1; width:100%; white-space:nowrap; }
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap:6px;
+  margin-bottom:30px;
+  flex-wrap: nowrap;
+  overflow:hidden;
+  width:100%;
+  padding:10px 5px; /* ensures circles don’t get cut off */
+}
+
+.circle-container {
+  position: relative;
+  flex: 1 1 0;
+  max-width:55px;
+  height:55px;
+  min-width:0;
+}
+
+.circle-svg { width:55px; height:55px; transform:rotate(-90deg); }
+.circle-bg, .circle-progress { fill:none; stroke-width:5; stroke-linecap:round; }
+.circle-bg { stroke:rgba(0,0,0,0.04); }
+.circle-progress { stroke:#b48a3c; stroke-dasharray:213; stroke-dashoffset:213; transition: stroke-dashoffset 1s linear; }
+.circle-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:bold; color:#4b3b2a; line-height:1; width:100%; white-space:nowrap; }
 .circle-small { font-size:7px; color:#6d5b4b; display:block; margin-top:1px; }
 
 /* SECTIONS */
@@ -61,19 +79,19 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
         <!-- COUNTDOWN -->
         <div class="countdown">
             <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="25" cy="25" r="23"/><circle class="circle-progress" id="circ-days" cx="25" cy="25" r="23"/></svg>
+                <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-days" cx="30" cy="30" r="28"/></svg>
                 <div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
             </div>
             <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="25" cy="25" r="23"/><circle class="circle-progress" id="circ-hours" cx="25" cy="25" r="23"/></svg>
+                <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-hours" cx="30" cy="30" r="28"/></svg>
                 <div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
             </div>
             <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="25" cy="25" r="23"/><circle class="circle-progress" id="circ-minutes" cx="25" cy="25" r="23"/></svg>
+                <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-minutes" cx="30" cy="30" r="28"/></svg>
                 <div class="circle-text"><span id="minutes">0</span><span class="circle-small">Min</span></div>
             </div>
             <div class="circle-container">
-                <svg class="circle-svg"><circle class="circle-bg" cx="25" cy="25" r="23"/><circle class="circle-progress" id="circ-seconds" cx="25" cy="25" r="23"/></svg>
+                <svg class="circle-svg"><circle class="circle-bg" cx="30" cy="30" r="28"/><circle class="circle-progress" id="circ-seconds" cx="30" cy="30" r="28"/></svg>
                 <div class="circle-text"><span id="seconds">0</span><span class="circle-small">Sec</span></div>
             </div>
         </div>
@@ -174,5 +192,6 @@ function launchFireworks(){
 setInterval(updateCountdown,1000);
 updateCountdown();
 </script>
+
 </body>
 </html>
