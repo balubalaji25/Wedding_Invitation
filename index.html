@@ -5,7 +5,6 @@
 <title>Kishore ❤️ Supraja Wedding</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet"><style>
 body{margin:0;font-family:Poppins;background:url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070');background-size:cover;background-attachment:fixed;color:#4b3b2a}
 
-/* SPLASH */
 #splash{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:'Great Vibes';font-size:45px;color:#b48a3c;animation:fadeOut 3s forwards 3s}
 @keyframes fadeOut{to{opacity:0;visibility:hidden}}
 
@@ -24,24 +23,22 @@ body{margin:0;font-family:Poppins;background:url('https://images.unsplash.com/ph
 .section{margin:15px 0;padding:15px;background:#fff;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,.08)}
 .section h3{color:#b48a3c;font-family:Playfair Display;margin-top:0}
 
+.btn{display:inline-block;padding:12px 15px;border-radius:30px;background:linear-gradient(135deg,#c9a14a,#9f7c2a);color:#fff;text-decoration:none;font-size:12px;margin-top:10px}
+
 .gallery img{width:100%;border-radius:15px;display:none}
 .gallery img.active{display:block}
 
-/* HEARTS */
-.heart{position:fixed;color:#ff7fa6;font-size:18px;animation:float 6s linear infinite}
-@keyframes float{to{transform:translateY(-120vh)}}
-
-/* FLOWERS */
 .flower{position:fixed;top:-50px;animation:fall linear infinite}
 @keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
 
-/* TIMELINE */
-.timeline{text-align:left;margin-top:20px}
-.timeline div{padding:10px;border-left:3px solid #b48a3c;margin-left:10px;margin-bottom:10px}
+.heart{position:fixed;color:#ff7fa6;font-size:18px;animation:float 6s linear infinite}
+@keyframes float{to{transform:translateY(-120vh)}}
 
-/* FIREWORK */
 .firework{position:fixed;font-size:24px;animation:explode 1s linear forwards}
 @keyframes explode{to{transform:scale(2);opacity:0}}
+
+.closing{margin-top:35px;font-style:italic;color:#6d5b4b;line-height:1.6}
+.tag{font-family:Playfair Display;font-size:24px;font-weight:700;color:#b48a3c;letter-spacing:5px;margin-top:20px}
 </style></head><body><div id="splash">KishRaja 💖</div><audio autoplay loop>
 <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_c4a4a28c2c.mp3">
 </audio><div class="overlay">
@@ -53,41 +50,54 @@ body{margin:0;font-family:Poppins;background:url('https://images.unsplash.com/ph
 <div class="time-box"><span id="m">0</span><small>MINS</small></div>
 <div class="time-box"><span id="s">0</span><small>SECS</small></div>
 </div><div class="section">
+<h3>🌼 Haldi & Mehendi</h3>
+<p>2 March 2026</p>
+<a class="btn" href="https://share.google/sx7oT5CeCxZVOJFxP" target="_blank">View Location</a>
+</div><div class="section">
 <h3>💍 Wedding Ceremony</h3>
 <p>4 March 2026 — 10:37 PM</p>
+<a class="btn" href="https://share.google/TO6dX1LdzeXd8PqUN" target="_blank">Navigate</a>
+</div><div class="section">
+<h3>🎉 Reception</h3>
+<p>5 March 2026 — 12 PM</p>
+<a class="btn" href="https://share.google/kXQd3GLrh7IahK97P" target="_blank">View Location</a>
 </div><div class="gallery">
 <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac" class="active">
 <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74">
 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
-</div><div class="section">
-<h3>💖 Our Love Story</h3>
-<div class="timeline">
-<div>✨ First Met — 2019</div>
-<div>💍 Engagement — 2025</div>
-<div>👰 Wedding — 2026</div>
-</div>
-</div></div>
+</div><div class="closing">
+Join us as we begin our forever and celebrate love, laughter, and happily ever after.  
+Your presence and blessings mean the world to us 🤍
+</div><div class="tag">#KishRaja 💖</div></div>
 </div><script>
-// COUNTDOWN
-var end=new Date("March 4, 2026 22:37:00").getTime();
+var weddingTime=new Date("March 4, 2026 22:37:00").getTime();
+var fireworksStarted=false;
+
+function launchFireworks(){
+for(let i=0;i<25;i++){
+let f=document.createElement("div");
+f.className="firework";
+f.innerHTML=["🎆","✨","💥","🎇"][Math.floor(Math.random()*4)];
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*80+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1000);
+}
+}
+
 setInterval(()=>{
 let now=new Date().getTime();
-let diff=end-now;
+let diff=weddingTime-now;
+
 d.innerHTML=Math.floor(diff/86400000);
 h.innerHTML=Math.floor(diff%86400000/3600000);
 m.innerHTML=Math.floor(diff%3600000/60000);
 s.innerHTML=Math.floor(diff%60000/1000);
 
-// FIREWORK ON DAY
-if(diff<0){
-for(let i=0;i<20;i++){
-let f=document.createElement("div");
-f.className="firework";
-f.innerHTML="🎆";
-f.style.left=Math.random()*100+"vw";
-f.style.top=Math.random()*80+"vh";
-document.body.appendChild(f);
-}
+if(diff<=0 && !fireworksStarted){
+fireworksStarted=true;
+setInterval(launchFireworks,2000);
+launchFireworks();
 }
 },1000);
 
