@@ -47,6 +47,7 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
 /* SECTIONS */
 .section { margin:25px 0; padding:20px; border-radius:18px; background:rgba(255,255,255,0.45); border:1px solid rgba(255,255,255,0.3); }
 .section h3 { color:#b48a3c; font-family:'Playfair Display'; margin-top:0; }
+.section p { margin:5px 0; }
 .btn { display:inline-block; margin-top:15px; padding:10px 25px; border-radius:30px; background:linear-gradient(135deg,#c9a14a,#9f7c2a); color:white; font-weight:bold; font-size:14px; }
 
 /* FLOWERS IN FRONT */
@@ -56,12 +57,10 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
 </head>
 <body>
 
-<!-- SPLASH -->
 <div id="splash"><div class="splash-tag">#KishRaja 💖</div></div>
 
 <div class="overlay">
     <div class="card">
-        <!-- LOGO -->
         <div class="logo-wrapper"><img src="ks-bg.jpg" class="logo" alt="KishRaja"></div>
         <div class="logo-title">Save the Date ✨</div>
         <div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
@@ -73,50 +72,53 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
                     <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
                     <circle class="circle-progress" id="circ-days" cx="37.5" cy="37.5" r="34"/>
                 </svg>
-                <div class="circle-text">📅 <span id="days">0</span><span class="circle-small">Days</span></div>
+                <div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
             </div>
             <div class="circle-container">
                 <svg class="circle-svg">
                     <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
                     <circle class="circle-progress" id="circ-hours" cx="37.5" cy="37.5" r="34"/>
                 </svg>
-                <div class="circle-text">🕒 <span id="hours">0</span><span class="circle-small">Hours</span></div>
+                <div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
             </div>
             <div class="circle-container">
                 <svg class="circle-svg">
                     <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
                     <circle class="circle-progress" id="circ-minutes" cx="37.5" cy="37.5" r="34"/>
                 </svg>
-                <div class="circle-text">🕒 <span id="minutes">0</span><span class="circle-small">Min</span></div>
+                <div class="circle-text"><span id="minutes">0</span><span class="circle-small">Min</span></div>
             </div>
             <div class="circle-container">
                 <svg class="circle-svg">
                     <circle class="circle-bg" cx="37.5" cy="37.5" r="34"/>
                     <circle class="circle-progress" id="circ-seconds" cx="37.5" cy="37.5" r="34"/>
                 </svg>
-                <div class="circle-text">🕒 <span id="seconds">0</span><span class="circle-small">Sec</span></div>
+                <div class="circle-text"><span id="seconds">0</span><span class="circle-small">Sec</span></div>
             </div>
         </div>
 
         <!-- EVENTS -->
         <div class="section">
             <h3>🌼 Haldi & Mehendi</h3>
-            <p>📅 2nd March 2026</p>
-            <div>📍 Swarna Palace Apartment, Vetapalem</div>
+            <p>🗓️ 2nd March 2026</p>
+            <p>⏰ From 10:00 AM</p>
+            <p>📍 Swarna Palace Apartment, Vetapalem</p>
             <a class="btn" href="https://share.google/sx7oT5CeCxZVOJFxP" target="_blank">🧭 Navigate</a>
         </div>
 
         <div class="section">
             <h3>💍 Wedding</h3>
-            <p>📅 4th March 2026 | 🕒 10:37 PM</p>
-            <div>📍 Padmavathi Convention Hall, Chirala</div>
+            <p>🗓️ 4th March 2026</p>
+            <p>⏰ 10:37 PM</p>
+            <p>📍 Padmavathi Convention Hall, Chirala</p>
             <a class="btn" href="https://share.google/TO6dX1LdzeXd8PqUN" target="_blank">🧭 Navigate</a>
         </div>
 
         <div class="section">
             <h3>🎉 Reception</h3>
-            <p>📅 5th March 2026 | 🕒 From 12 PM</p>
-            <div>📍 HO Convention Hall, Vijayawada</div>
+            <p>🗓️ 5th March 2026</p>
+            <p>⏰ From 12:00 PM</p>
+            <p>📍 HO Convention Hall, Vijayawada</p>
             <a class="btn" href="https://share.google/kXQd3GLrh7IahK97P" target="_blank">🧭 Navigate</a>
         </div>
 
@@ -169,7 +171,7 @@ function updateCircle(id,value,max){
     circle.style.strokeDashoffset=213*(1-value/max);
 }
 
-// FLOWERS IN FRONT
+// FLOWERS
 for(let i=0;i<35;i++){
     let f=document.createElement("div"); f.className="flower"; f.innerHTML="🌸";
     f.style.left=Math.random()*100+"vw"; f.style.animationDuration=(7+Math.random()*10)+"s";
