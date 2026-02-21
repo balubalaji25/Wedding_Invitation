@@ -6,140 +6,61 @@
 <title>Kishore ❤️ Supraja Wedding</title>
 <link href="https://fonts.googleapis.com" rel="stylesheet">
 <style>
-/* --- BASE STYLES --- */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #fdfbf7;
-    color: #4b3b2a;
-    overflow-x: hidden;
-}
+body { margin: 0; font-family: 'Poppins', sans-serif; background: #fdfbf7; color: #4b3b2a; overflow-x: hidden; }
 
-/* --- STYLISH SPLASH SCREEN (TAGLINE ONLY) --- */
-#splash {
-    position: fixed; width: 100%; height: 100%;
-    background: radial-gradient(circle, #ffffff 0%, #fdfbf7 100%);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 9999; animation: fadeOut 4s forwards 3s;
-}
-
-.splash-tag {
-    font-family: 'Great Vibes'; 
-    font-size: 60px;
-    background: linear-gradient(to right, #b48a3c 20%, #e6c873 40%, #c9a14a 60%, #b48a3c 80%);
-    background-size: 200% auto;
-    -webkit-background-clip: text; background-clip: text;
-    color: transparent;
-    animation: shine 3s linear infinite, softPulse 2s infinite alternate;
-}
-
+/* 1. STYLISH SPLASH SCREEN (Tagline Only) */
+#splash { position: fixed; width: 100%; height: 100%; background: white; display: flex; align-items: center; justify-content: center; z-index: 9999; animation: fadeOut 4s forwards 3s; }
+.splash-tag { font-family: 'Great Vibes'; font-size: 60px; background: linear-gradient(to right, #b48a3c, #e6c873, #b48a3c); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 3s linear infinite, softPulse 2s infinite alternate; }
 @keyframes shine { to { background-position: 200% center; } }
-@keyframes softPulse {
-    from { transform: scale(1); filter: drop-shadow(0 0 2px rgba(201, 161, 74, 0.3)); }
-    to { transform: scale(1.08); filter: drop-shadow(0 0 10px rgba(201, 161, 74, 0.6)); }
-}
+@keyframes softPulse { from { transform: scale(1); } to { transform: scale(1.05); } }
 @keyframes fadeOut{ to{ opacity: 0; visibility: hidden; } }
 
-/* --- GLASSMORPHISM MAIN PAGE --- */
-.overlay {
-    background: transparent; 
-    min-height: 100vh;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+/* 2. MAIN GLASS CARD (Fixes the "Double Box" issue) */
+.overlay { 
+    background: transparent !important; /* Forces background to be invisible */
+    min-height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    padding: 20px 10px; 
+}
+.card { 
+    max-width: 550px; width: 100%; text-align: center; padding: 40px 20px; border-radius: 30px;
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent for flowers */
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255, 255, 255, 0.4); 
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); 
+    z-index: 1; /* Sits above falling flowers */
 }
 
-.card {
-    max-width: 700px;
-    width: 100%;
-    text-align: center;
-    padding: 30px;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.65); /* Semi-transparent */
-    backdrop-filter: blur(12px); /* Glass blur */
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
-
-/* --- LOGO & TITLES --- */
+/* 3. LOGO & TITLES */
 .logo-wrapper { position: relative; display: inline-block; margin-bottom: 25px; }
-.logo { 
-    width: 170px; height: 170px; object-fit: cover; border-radius: 50%; 
-    border: 6px solid #c9a14a; box-shadow: 0 0 25px rgba(201, 161, 74, 0.5); 
-    animation: logoPulse 3s infinite; 
-}
-.logo-wrapper::before {
-    content: ""; position: absolute; top: -12px; left: -12px; width: 194px; height: 194px; 
-    border-radius: 50%; border: 3px dashed #e6c873; animation: spin 12s linear infinite;
-}
+.logo { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 5px solid #c9a14a; box-shadow: 0 0 20px rgba(201,161,74,0.4); animation: logoPulse 3s infinite; }
+.logo-wrapper::before { content: ""; position: absolute; top: -10px; left: -10px; width: 180px; height: 180px; border-radius: 50%; border: 2px dashed #e6c873; animation: spin 15s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes logoPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
-.logo-title { font-family: 'Great Vibes'; font-size: 48px; color: #b48a3c; margin: 10px 0; }
-.subtitle { font-size: 20px; margin-bottom: 25px; font-weight: 300; }
+.logo-title { font-family: 'Great Vibes'; font-size: 50px; color: #b48a3c; margin: 10px 0; }
+.subtitle { font-size: 19px; margin-bottom: 25px; font-weight: 300; }
 
-/* --- CLEAN CIRCULAR COUNTDOWN --- */
-.countdown {
-    display: flex; justify-content: center; gap: 12px; 
-    flex-wrap: nowrap; overflow: visible; padding: 15px 0;
-}
+/* 4. COUNTDOWN (Fixes the "Rectangular Box" blinking) */
+.countdown { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+.circle-container { position: relative; width: 75px; height: 75px; background: transparent !important; }
+.circle-svg { transform: rotate(-90deg); width: 75px; height: 75px; background: transparent; }
+.circle-bg { fill: none; stroke: rgba(0, 0, 0, 0.04); stroke-width: 6; }
+.circle-progress { fill: none; stroke: #b48a3c; stroke-width: 6; stroke-linecap: round; transition: stroke-dashoffset 1s linear; stroke-dasharray: 213; stroke-dashoffset: 213; }
+.circle-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 16px; font-weight: bold; color: #4b3b2a; line-height: 1; width: 100%; white-space: nowrap; }
+.circle-small { font-size: 9px; color: #6d5b4b; display: block; margin-top: 3px; letter-spacing: 1px; }
 
-.circle-container {
-    position: relative; width: 75px; height: 75px;
-    background: transparent !important; /* Fix for the rectangular box */
-    flex-shrink: 0;
-}
-
-.circle-svg {
-    transform: rotate(-90deg); width: 75px; height: 75px;
-    filter: drop-shadow(0 0 4px rgba(201, 161, 74, 0.3));
-    background: transparent;
-}
-
-.circle-bg, .circle-progress { fill: none; stroke-width: 6; }
-.circle-bg { stroke: rgba(0, 0, 0, 0.04); }
-.circle-progress {
-    stroke: #b48a3c; stroke-linecap: round;
-    transition: stroke-dashoffset 1s linear;
-    stroke-dasharray: 213; stroke-dashoffset: 213;
-}
-
-.circle-text {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    font-size: 16px; font-weight: bold; text-align: center; color: #4b3b2a;
-    line-height: 1; width: 100%; white-space: nowrap;
-}
-.circle-small { font-size: 9px; color: #6d5b4b; display: block; letter-spacing: 1px; margin-top: 3px; }
-
-/* --- SECTIONS --- */
-.section {
-    margin: 25px 0; padding: 20px; border-radius: 15px;
-    background: rgba(255, 255, 255, 0.45) !important; /* See-through sections */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 15px rgba(0,0,0,.04);
-}
+/* 5. SECTIONS & BUTTONS */
+.section { margin: 25px 0; padding: 20px; border-radius: 18px; background: rgba(255, 255, 255, 0.45) !important; border: 1px solid rgba(255, 255, 255, 0.3); }
 .venue { font-weight: bold; font-size: 17px; color: #9f7c2a; margin-top: 8px; }
-.btn {
-    display: inline-block; margin-top: 15px; padding: 10px 22px; border-radius: 30px;
-    background: linear-gradient(135deg, #c9a14a, #9f7c2a); color: white;
-    text-decoration: none; font-weight: 500; font-size: 14px;
-    box-shadow: 0 4px 10px rgba(159, 124, 42, 0.3);
-}
+.btn { display: inline-block; margin-top: 15px; padding: 10px 25px; border-radius: 30px; background: linear-gradient(135deg, #c9a14a, #9f7c2a); color: white; text-decoration: none; font-size: 14px; font-weight: bold; box-shadow: 0 5px 15px rgba(159, 124, 42, 0.2); }
 
-.tagline { margin-top: 25px; font-size: 32px; font-weight: bold; color: #b48a3c; font-family: 'Great Vibes'; }
-
-/* --- BACKGROUND FLOWERS --- */
-.flower, .petal {
-    position: fixed; top: -50px; pointer-events: none;
-    animation: fall linear infinite; z-index: -1; /* Behind the glass card */
-}
+/* 6. BACKGROUND FLOWERS */
+.flower, .petal { position: fixed; top: -50px; pointer-events: none; animation: fall linear infinite; z-index: -1; opacity: 0.6; }
 @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
 
-/* --- CELEBRATION EFFECTS --- */
+/* 7. CELEBRATION EFFECTS */
 .firework { position: fixed; width: 6px; height: 6px; border-radius: 50%; animation: explode 1.2s linear forwards; z-index: 9999; }
 @keyframes explode { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(10); opacity: 0; } }
 .popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Great Vibes'; font-size: 70px; color: #c9a14a; text-shadow: 0 0 20px gold; opacity: 0; animation: showPopup 5s forwards; z-index: 9999; }
@@ -148,66 +69,72 @@ body {
 </head>
 <body>
 
-<!-- STYLISH FIRST PAGE -->
+<!-- SPLASH SCREEN -->
 <div id="splash">
     <div class="splash-tag">#KishRaja 💖</div>
 </div>
 
 <div class="overlay">
-<div class="card">
-    <div class="logo-wrapper"><img src="ks-bg.jpg" class="logo"></div>
-    <div class="logo-title">Save the Date ✨</div>
-    <div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
+    <div class="card">
+        <!-- LOGO -->
+        <div class="logo-wrapper"><img src="ks-bg.jpg" class="logo"></div>
+        <div class="logo-title">Save the Date ✨</div>
+        <div class="subtitle">Kishore ❤️ Supraja are tying the knot!</div>
 
-    <!-- COUNTDOWN -->
-    <div class="countdown">
-        <div class="circle-container">
-            <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-days" cx="37.5" cy="37.5" r="34""")/>></svg>
-            <div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
+        <!-- COUNTDOWN -->
+        <div class="countdown">
+            <div class="circle-container">
+                <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-days" cx="37.5" cy="37.5" r="34""")/>></svg>
+                <div class="circle-text"><span id="days">0</span><span class="circle-small">Days</span></div>
+            </div>
+            <div class="circle-container">
+                <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-hours" cx="37.5" cy="37.5" r="34""")/>></svg>
+                <div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
+            </div>
+            <div class="circle-container">
+                <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-minutes" cx="37.5" cy="37.5" r="34""")/>></svg>
+                <div class="circle-text"><span id="minutes">0</span><span class="circle-small">Min</span></div>
+            </div>
+            <div class="circle-container">
+                <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-seconds" cx="37.5" cy="37.5" r="34""")/>></svg>
+                <div class="circle-text"><span id="seconds">0</span><span class="circle-small">Sec</span></div>
+            </div>
         </div>
-        <div class="circle-container">
-            <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-hours" cx="37.5" cy="37.5" r="34""")/>></svg>
-            <div class="circle-text"><span id="hours">0</span><span class="circle-small">Hours</span></div>
+
+        <!-- EVENTS -->
+        <div class="section">
+            <h3>🌼 Haldi & Mehendi</h3>
+            <p>📅 2nd March 2026</p>
+            <div class="venue">📍 Function Hall</div>
+            <a class="btn" href="https://share.google">🧭 Navigate</a>
         </div>
-        <div class="circle-container">
-            <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-minutes" cx="37.5" cy="37.5" r="34""")/>></svg>
-            <div class="circle-text"><span id="minutes">0</span><span class="circle-small">Min</span></div>
+
+        <div class="section">
+            <h3>💍 Wedding</h3>
+            <p>📅 4th March 2026 | 🕒 10:37 PM</p>
+            <div class="venue">📍 Padmavathi Convention Hall, Chirala</div>
+            <a class="btn" href="https://share.google">🧭 Navigate</a>
         </div>
-        <div class="circle-container">
-            <svg class="circle-svg"><circle class="circle-bg" cx="37.5" cy="37.5" r="34""")/>><circle class="circle-progress" id="circ-seconds" cx="37.5" cy="37.5" r="34""")/>></svg>
-            <div class="circle-text"><span id="seconds">0</span><span class="circle-small">Sec</span></div>
+
+        <div class="section">
+            <h3>🎉 Reception</h3>
+            <p>📅 5th March 2026 | 🕒 From 12 PM</p>
+            <div class="venue">📍 HO Convention Hall, Vijayawada</div>
+            <a class="btn" href="https://share.google">🧭 Navigate</a>
+        </div>
+
+        <!-- TELUGU QUOTE -->
+        <div class="section">
+            <h3 style="font-family: 'Great Vibes'; font-size: 32px; color: #b48a3c;">💖 శుభాకాంక్షలతో</h3>
+            <p>
+                మీ ఆశీర్వాదాలే మా జీవితానికి బలం.<br>
+                మా వివాహ మహోత్సవానికి విచ్చేసి<br>
+                మమ్మల్ని ఆశీర్వదించవలసిందిగా మనస్ఫూర్తిగా ఆహ్వానిస్తున్నాము.
+            </p>
+            <p style="margin-top:15px; font-weight:bold; color:#b48a3c;">— ప్రేమతో,<br>కిషోర్ ❤️ సుప్రజ</p>
+            <div style="font-family: 'Great Vibes'; font-size: 28px; margin-top: 10px;">#KishRaja 💖</div>
         </div>
     </div>
-
-    <!-- EVENTS -->
-    <div class="section">
-        <h3>🌼 Haldi & Mehendi</h3>
-        <p>📅 2nd March 2026</p>
-        <div class="venue">📍 Function Hall</div>
-        <a class="btn" href="https://share.google">🧭 Navigate</a>
-    </div>
-
-    <div class="section">
-        <h3>💍 Wedding</h3>
-        <p>📅 4th March 2026 | 🕒 10:37 PM</p>
-        <div class="venue">📍 Padmavathi Convention Hall, Chirala</div>
-        <a class="btn" href="https://share.google">🧭 Navigate</a>
-    </div>
-
-    <div class="section">
-        <h3>🎉 Reception</h3>
-        <p>📅 5th March 2026 | 🕒 From 12 PM</p>
-        <div class="venue">📍 HO Convention Hall, Vijayawada</div>
-        <a class="btn" href="https://share.google">🧭 Navigate</a>
-    </div>
-
-    <div class="section">
-        <h3>💖 శుభాకాంక్షలతో</h3>
-        <p>మీ ఆశీర్వాదాలే మా జీవితానికి బలం.<br>మా వివాహ మహోత్సవానికి విచ్చేసి మమ్మల్ని ఆశీర్వదించవలసిందిగా మనస్ఫూర్తిగా ఆహ్వానిస్తున్నాము.</p>
-        <p style="margin-top:15px;font-weight:bold;color:#b48a3c;">— ప్రేమతో,<br>కిషోర్ ❤️ సుప్రజ</p>
-        <div class="tagline">#KishRaja 💖</div>
-    </div>
-</div>
 </div>
 
 <script>
@@ -242,22 +169,19 @@ function updateCountdown(){
 
 function updateCircle(id, value, max){
     var circle = document.getElementById(id);
-    var offset = 213 * (1 - value/max);
+    var offset = 213 * (1 - value/max); // Circumference for r=34
     circle.style.strokeDashoffset = offset;
 }
 
 // Background Flowers
 for(let i=0; i<35; i++){
-    let f = document.createElement("div");
-    f.className = "flower"; f.innerHTML = "🌸";
-    f.style.left = Math.random()*100 + "vw";
-    f.style.animationDuration = (6 + Math.random()*8) + "s";
-    f.style.opacity = 0.4 + Math.random()*0.4;
+    let f = document.createElement("div"); f.className = "flower"; f.innerHTML = "🌸";
+    f.style.left = Math.random()*100 + "vw"; f.style.animationDuration = (6 + Math.random()*8) + "s";
     document.body.appendChild(f);
 }
 
 function launchFireworks(){
-    for(let i=0; i<40; i++){
+    for(let i=0; i<45; i++){
         let f = document.createElement("div"); f.className = "firework";
         f.style.left = Math.random()*100 + "vw"; f.style.top = Math.random()*100 + "vh";
         f.style.background = "hsl(" + Math.random()*360 + ",100%,60%)";
