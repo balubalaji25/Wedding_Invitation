@@ -29,13 +29,20 @@ body { margin:0; font-family:'Poppins',sans-serif; background:#fdfbf7; color:#4b
 .subtitle { font-size:19px; margin-bottom:25px; }
 
 /* COUNTDOWN */
-.countdown { display:flex; justify-content:center; gap:8px; margin-bottom:30px; flex-wrap:wrap; }
-.circle-container { position:relative; width:75px; height:75px; }
+.countdown { display:flex; justify-content:center; gap:8px; margin-bottom:30px; flex-wrap: nowrap; overflow-x: auto; }
+.circle-container { position:relative; width:75px; height:75px; min-width:65px; }
 .circle-svg { transform:rotate(-90deg); width:75px; height:75px; }
 .circle-bg { fill:none; stroke:rgba(0,0,0,0.04); stroke-width:6; }
 .circle-progress { fill:none; stroke:#b48a3c; stroke-width:6; stroke-linecap:round; transition:stroke-dashoffset 1s linear; stroke-dasharray:213; stroke-dashoffset:213; }
 .circle-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:16px; font-weight:bold; color:#4b3b2a; line-height:1; width:100%; white-space:nowrap; }
 .circle-small { font-size:10px; color:#6d5b4b; display:block; margin-top:3px; }
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 400px){
+    .circle-container { width:60px; height:60px; }
+    .circle-text { font-size:14px; }
+    .circle-small { font-size:8px; }
+}
 
 /* SECTIONS */
 .section { margin:25px 0; padding:20px; border-radius:18px; background:rgba(255,255,255,0.45); border:1px solid rgba(255,255,255,0.3); }
